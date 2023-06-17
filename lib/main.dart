@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:zomato_clone/common/router.dart';
+import 'package:zomato_clone/features/splash/splash_screen.dart';
 import 'package:zomato_clone/firebase_options.dart';
 
 void main() async {
@@ -22,15 +24,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Scaffold(
-        body: Center(
-          child: Text("Zomato Clone"),
-        ),
-      ),
+      home: const SplashScreen(),
+      onGenerateRoute: generateRoute,
     );
   }
 }
