@@ -50,6 +50,8 @@ dependencies:
   firebase_storage: ^11.2.3
   firebase_core: ^2.14.0
   google_fonts: ^4.0.0
+  google_sign_in: ^6.1.4
+  firebase_auth: ^4.6.3
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +80,7 @@ flutter:
     - assets/images/splash_icon_2.png
     - assets/images/login_image_1.jpg
     - assets/images/indian_flag_icon.png
+    - assets/images/google_icon.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
