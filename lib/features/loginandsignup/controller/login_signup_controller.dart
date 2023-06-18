@@ -10,8 +10,12 @@ class LoginSignUpController{
   final LoginSignUpRepository repository;
   LoginSignUpController(this.repository);
 
-  Future<Pair<Pair<UserData, bool>?, String?>> signInWithGoogle() async {
-    return repository.signInWithGoogle();
+  Future<Pair<Pair<UserData, bool>?, String?>> signInOrSignUpWithGoogle() async {
+    return repository.signInOrSignUpWithGoogle();
+  }
+
+  Future<Pair<Pair<UserData, bool>?, String?>> signInOrSignUpWithFacebook() async {
+    return repository.signInOrSignUpWithFacebook();
   }
 
 }
