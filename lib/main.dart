@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/common/router.dart';
 import 'package:zomato_clone/common/utils/colors.dart';
 import 'package:zomato_clone/common/widgets/progress_bar_with_text.dart';
+import 'package:zomato_clone/features/loginandsignup/screens/username_screen.dart';
+import 'package:zomato_clone/features/loginandsignup/screens/verify_otp_screen.dart';
 import 'package:zomato_clone/features/splash/splash_screen.dart';
 import 'package:zomato_clone/firebase_options.dart';
 
@@ -28,12 +30,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData.light().copyWith(
+      theme: ThemeData(
+        scaffoldBackgroundColor: primaryColor,
         primaryColor: primaryColor,
+        backgroundColor: primaryColor,
         progressIndicatorTheme:
             const ProgressIndicatorThemeData(color: primaryColor),
       ),
-      home: const SplashScreen(),
+      home: const UserNameScreen(),
       onGenerateRoute: generateRoute,
     );
   }

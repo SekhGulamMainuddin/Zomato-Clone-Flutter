@@ -18,4 +18,19 @@ class LoginSignUpController{
     return repository.signInOrSignUpWithFacebook();
   }
 
+  void signInOrSignUpWithPhone(String phoneNumber, Function(String, int?) verification) async {
+    repository.signInWithPhone(phoneNumber, verification);
+  }
+
+  Future<bool> verifyOTP(String verificationId, String otp) async {
+    return repository.verifyOTP(verificationId: verificationId, userOTP: otp);
+  }
+
+  Stream<int> getResendTime() async* {
+    for(int i = 5; i>=0; i--){
+      await Future<void>.delayed(const Duration(seconds: 1));
+      yield i;
+    }
+  }
+
 }

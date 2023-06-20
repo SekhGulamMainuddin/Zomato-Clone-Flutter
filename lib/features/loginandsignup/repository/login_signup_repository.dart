@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -47,13 +46,40 @@ class LoginSignUpRepository {
     }
   }
 
-  // Future<Pair<Pair<UserData, bool>?, String?>> signInOrSignUpWithPhone() async {
-  //   try{
-  //     final credential = await _firebaseAuth.signInWithEmailLink(email: email, emailLink: emailLink)
-  //   } catch (e) {
-  //     return Pair(null, e.toString());
-  //   }
-  // }
+  void signInWithPhone(String phoneNumber, Function(String, int?) verification) async {
+    try {
+      await _firebaseAuth.verifyPhoneNumber(
+        phoneNumber: phoneNumber,
+        verificationCompleted: (PhoneAuthCredential credential) async {},
+        verificationFailed: (e) {
+          throw Exception(e.message);
+        },
+        codeSent: ((String verificationId, int? resendToken) async {
+          verification(verificationId, resendToken);
+        }),
+        codeAutoRetrievalTimeout: (String verificationId) {},
+      );
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  Future<bool> verifyOTP({
+    required String verificationId,
+    required String userOTP,
+  }) async {
+    try {
+      PhoneAuthCredential credential = PhoneAuthProvider.credential(
+        verificationId: verificationId,
+        smsCode: userOTP,
+      );
+      await _firebaseAuth.signInWithCredential(credential);
+      return true;
+    } catch (e) {
+      debugPrint(e.toString());
+      return false;
+    }
+  }
 
   Future<Pair<Pair<UserData, bool>?, String?>> signInOrSignUpWithFacebook() async {
     try {
