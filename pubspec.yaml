@@ -43,17 +43,17 @@ dependencies:
   http: ^0.13.5
   carousel_slider: ^4.2.1
   shared_preferences: ^2.1.2
-  charts_flutter: ^0.12.0
-  pay: ^1.1.0
-  intl: ^0.17.0
+  pay: ^1.1.1
+  intl: ^0.18.0
   firebase_messaging: ^14.6.3
   firebase_storage: ^11.2.3
   firebase_core: ^2.14.0
-  google_fonts: ^4.0.0
+  google_fonts: ^4.0.4
   google_sign_in: ^6.1.4
   firebase_auth: ^4.6.3
   flutter_facebook_auth: ^5.0.11
-  pinput: ^2.2.21
+  pinput: ^2.2.31
+  lottie: ^2.4.0
 
 dev_dependencies:
   flutter_launcher_icons: ^0.12.0
@@ -68,7 +68,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter_icons:
-  android: "launcher_icon"
+  android: true
   ios: true
   image_path: "assets/images/zomato_icon.png"
 
@@ -84,12 +84,8 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/splash_icon_1.png
-    - assets/images/splash_icon_2.png
-    - assets/images/login_image_1.jpg
-    - assets/images/indian_flag_icon.png
-    - assets/images/google_icon.png
-    - assets/images/zomato_icon.png
+    - assets/images/
+    - assets/lottie/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -108,9 +104,26 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: FireSans
+    - family: custom_font
       fonts:
-        - asset: assets/fonts/firasans_ultra_italic.otf
+        - asset: assets/fonts/custom_font_extrabold.ttf
+          weight: 800
+        - asset: assets/fonts/custom_font_bold.ttf
+          weight: 700
+        - asset: assets/fonts/custom_font_semibold.ttf
+          weight: 600
+        - asset: assets/fonts/custom_font_medium.ttf
+          weight: 500
+        - asset: assets/fonts/custom_font_regular.ttf
+          weight: 400
+        - asset: assets/fonts/custom_font_light.ttf
+          weight: 300
+        - asset: assets/fonts/custom_font_extralight.ttf
+          weight: 200
+        - asset: assets/fonts/custom_font_thin.ttf
+          weight: 100
+
+
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

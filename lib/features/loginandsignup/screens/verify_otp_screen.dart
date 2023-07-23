@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pinput/pinput.dart';
-import 'package:zomato_clone/common/utils/colors.dart';
+import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/common/utils/utils.dart';
 import 'package:zomato_clone/features/loginandsignup/controller/login_signup_controller.dart';
 
@@ -22,27 +22,25 @@ class VerifyOTPScreen extends ConsumerStatefulWidget {
 class _VerifyOTPScreenState extends ConsumerState<VerifyOTPScreen> {
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     final defaultPinTheme = PinTheme(
       width: 56,
       height: 56,
-      textStyle: const TextStyle(
-          fontSize: 20, color: black, fontWeight: FontWeight.w600),
+      textStyle: textTheme.labelMedium?.copyWith(fontSize: 20),
       decoration: BoxDecoration(
         border: Border.all(color: midGrey),
         borderRadius: BorderRadius.circular(8),
       ),
     );
-
     final submittedPinTheme = defaultPinTheme.copyDecorationWith(
       border: Border.all(color: black),
       borderRadius: BorderRadius.circular(8),
     );
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           "OTP Verification",
-          style: TextStyle(color: black),
+          style: textTheme.labelSmall?.copyWith(fontSize: 18),
         ),
         centerTitle: false,
         leading: const Icon(
@@ -60,16 +58,16 @@ class _VerifyOTPScreenState extends ConsumerState<VerifyOTPScreen> {
             const SizedBox(
               height: 20,
             ),
-            const Text(
+            Text(
               "We have sent a verification code to",
-              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+              style: textTheme.bodyLarge?.copyWith(fontSize: 16),
             ),
             const SizedBox(
               height: 8,
             ),
             Text(
               widget.phoneNumber,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+              style: textTheme.titleSmall,
             ),
             const SizedBox(
               height: 30,
@@ -88,12 +86,12 @@ class _VerifyOTPScreenState extends ConsumerState<VerifyOTPScreen> {
                       .read(loginSignUpControllerProvider)
                       .verifyOTP(widget.verificationId, pin)
                       .then((value) {
-                        if(value){
-                          showSnackBar(context, "Success");
-                        }else{
-                          showSnackBar(context, "Verification Failed Wrong OTP");
-                        }
-                        Navigator.pop(context);
+                    if (value) {
+                      showSnackBar(context, "Success");
+                    } else {
+                      showSnackBar(context, "Verification Failed Wrong OTP");
+                    }
+                    Navigator.pop(context);
                   });
                 },
               ),
@@ -124,8 +122,10 @@ class _VerifyOTPScreenState extends ConsumerState<VerifyOTPScreen> {
                   ),
                   child: Text(
                     btnText,
-                    style:
-                        TextStyle(color: snapshot.data == 0 ? primaryColor : midGrey),
+                    style: textTheme.labelSmall?.copyWith(
+                      color: snapshot.data == 0 ? primaryColor : midGrey,
+                      fontSize: 16
+                    ),
                   ),
                 );
               },
@@ -133,10 +133,9 @@ class _VerifyOTPScreenState extends ConsumerState<VerifyOTPScreen> {
             const SizedBox(
               height: 30,
             ),
-            const Text(
+            Text(
               "Try other login methods",
-              style:
-                  TextStyle(color: primaryColor, fontWeight: FontWeight.w500),
+              style: textTheme.labelSmall?.copyWith(color: primaryColor),
             ),
           ],
         ),

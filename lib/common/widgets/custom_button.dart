@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zomato_clone/common/utils/colors.dart';
+import 'package:zomato_clone/common/constants/colors.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
@@ -10,6 +10,7 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
@@ -21,8 +22,9 @@ class CustomButton extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: const TextStyle(
-          fontSize: 18
+        style: textTheme.bodyLarge?.copyWith(
+          fontSize: 18,
+          color: white
         ),
       ),
     );

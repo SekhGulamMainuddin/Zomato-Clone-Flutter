@@ -1,5 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:zomato_clone/common/utils/colors.dart';
+import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/features/loginandsignup/screens/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -32,6 +34,7 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     Future.delayed(const Duration(milliseconds: 750), () {
       controller.forward();
       Future.delayed(const Duration(seconds: 2), () {
@@ -60,12 +63,10 @@ class _SplashScreenState extends State<SplashScreen>
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
+                Text(
                   "zomato",
-                  style: TextStyle(
-                    fontFamily: "assets/fonts/firasans_ultra_italic.otf",
+                  style: textTheme.displayLarge?.copyWith(
                     fontSize: 68,
-                    fontWeight: FontWeight.w900,
                     fontStyle: FontStyle.italic,
                     color: white,
                   ),
@@ -73,22 +74,21 @@ class _SplashScreenState extends State<SplashScreen>
                 const SizedBox(
                   height: 10,
                 ),
-                const Text(
+                Text(
                   "100% Green Deliveries",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 26,
-                      color: white),
+                  style: textTheme.displayLarge?.copyWith(
+                    fontSize: 22,
+                    color: white,
+                  ),
                 ),
                 const SizedBox(
                   height: 7,
                 ),
-                const Text(
+                Text(
                   "Carbon and Plastic Neutral\nin India",
-                  style: TextStyle(
+                  style: textTheme.bodyLarge?.copyWith(
                     color: lightPink,
-                    fontSize: 18,
-                    fontWeight: FontWeight.normal,
+                    fontSize: 15
                   ),
                   textAlign: TextAlign.center,
                 ),

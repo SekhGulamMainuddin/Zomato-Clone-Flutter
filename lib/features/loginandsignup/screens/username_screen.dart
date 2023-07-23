@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:zomato_clone/common/utils/colors.dart';
+import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/common/widgets/custom_button.dart';
 
 class UserNameScreen extends ConsumerStatefulWidget {
@@ -22,11 +22,12 @@ class _UserNameScreenState extends ConsumerState<UserNameScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           "Welcome to Zomato!",
-          style: TextStyle(color: black),
+          style: textTheme.labelSmall?.copyWith(fontSize: 18),
         ),
         centerTitle: false,
         leading: const Icon(
@@ -42,10 +43,9 @@ class _UserNameScreenState extends ConsumerState<UserNameScreen> {
           const SizedBox(
             height: 20,
           ),
-          const Text(
+          Text(
             "Tell us your name",
-            style: TextStyle(
-                fontWeight: FontWeight.w600, fontSize: 16, color: black),
+            style: textTheme.labelSmall?.copyWith(fontSize: 18),
           ),
           const SizedBox(
             height: 60,
@@ -54,14 +54,16 @@ class _UserNameScreenState extends ConsumerState<UserNameScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: TextField(
               controller: nameController,
-              style: GoogleFonts.poppins(
-                  fontSize: 18, color: black, fontWeight: FontWeight.w500),
-              decoration: const InputDecoration(
+              style: textTheme.bodyLarge?.copyWith(
+                fontSize: 18,
+                color: black,
+              ),
+              decoration: InputDecoration(
                 contentPadding: EdgeInsets.zero,
                 labelText: "Name",
-                labelStyle: TextStyle(
-                    color: midGrey, fontWeight: FontWeight.w600, fontSize: 17),
-                focusedBorder: UnderlineInputBorder(
+                labelStyle: textTheme.labelSmall
+                    ?.copyWith(color: midGrey, fontSize: 17),
+                focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(
                   width: 2,
                   color: darkRed,
@@ -72,7 +74,10 @@ class _UserNameScreenState extends ConsumerState<UserNameScreen> {
           const Expanded(child: SizedBox()),
           Padding(
             padding: const EdgeInsets.all(20),
-            child: CustomButton(text: "Continue", onPressed: () {},),
+            child: CustomButton(
+              text: "Continue",
+              onPressed: () {},
+            ),
           ),
         ],
       ),
