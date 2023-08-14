@@ -23,7 +23,7 @@ class AddFilterWidget extends StatelessWidget {
         child: Material(
           borderRadius: BorderRadius.circular(10),
           color: white,
-          elevation: 3,
+          elevation: 1,
           child: InkWell(
             borderRadius: BorderRadius.circular(10),
             onTap: onClick,

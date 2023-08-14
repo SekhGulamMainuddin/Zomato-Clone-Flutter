@@ -53,7 +53,7 @@ class RestaurantItemWidget extends StatelessWidget {
                   imageUrl,
                   fit: BoxFit.cover,
                   width: double.infinity,
-                  height: 225,
+                  height: 200,
                 ),
                 Align(
                   alignment: Alignment.topRight,
