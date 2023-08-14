@@ -1,15 +1,7 @@
-import 'dart:math';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lottie/lottie.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/features/delivery/screens/delivery_screen.dart';
-import 'package:zomato_clone/features/home/widgets/add_filter_widget.dart';
-import 'package:zomato_clone/features/home/widgets/restaurant_item_widget.dart';
-import 'package:zomato_clone/features/home/widgets/recipe_item_widget.dart';
-import 'package:zomato_clone/models/pair.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   static const routeName = "/home-screen";
@@ -23,57 +15,138 @@ class HomeScreen extends ConsumerStatefulWidget {
 class _HomeScreenState extends ConsumerState<HomeScreen> {
   List<Widget> screens = [];
   var _currentPage = 0;
+  var screenWidth = 0.0;
+  TextTheme? textTheme;
 
   @override
   void initState() {
     super.initState();
-
     _currentPage = 0;
     screens = [
       const DeliveryScreen(),
+      const Center(
+        child: Text("Money"),
+      ),
     ];
   }
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    textTheme = Theme.of(context).textTheme;
+    screenWidth = MediaQuery.sizeOf(context).width * 0.35;
     return Scaffold(
       body: SafeArea(
         child: screens[_currentPage],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedFontSize: 0,
-        unselectedFontSize: 0,
-        iconSize: 0,
-        items: [
-          BottomNavigationBarItem(
-            icon: Container(
-              height: 50,
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                color: Colors.black,
-                border: Border(
-                  right: BorderSide(color: white, width: 0.5)
-                )
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            bottomNavigationItem(
+              imageIcon:
+                  "assets/images/delivery_${_currentPage == 0 ? "selected_" : ""}icon.png",
+              label: "Delivery",
+              isSelected: _currentPage == 0,
+              onClick: () {
+                if (_currentPage != 0) {
+                  setState(() {
+                    _currentPage = 0;
+                  });
+                }
+              },
+            ),
+            const SizedBox(
+              height: 30,
+              child: VerticalDivider(
+                color: midLightGrey,
               ),
             ),
-            label: "",
-          ),
-          BottomNavigationBarItem(
-            icon: Container(
-              height: 50,
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                  color: Colors.red,
-                  border: Border(
-                      left: BorderSide(color: white, width: 0.5)
-                  )
-              ),
+            bottomNavigationItem(
+              imageIcon:
+                  "assets/images/wallet_${_currentPage == 1 ? "selected_" : ""}icon.png",
+              label: "Money",
+              isSelected: _currentPage == 1,
+              onClick: () {
+                if (_currentPage != 1) {
+                  setState(() {
+                    _currentPage = 1;
+                  });
+                }
+              },
             ),
-            label: "",
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
+
+  Widget bottomNavigationItem({
+    required String imageIcon,
+    required String label,
+    required bool isSelected,
+    required VoidCallback onClick,
+  }) =>
+      Expanded(
+        child: GestureDetector(
+          onTap: onClick,
+          child: Container(
+            color: white,
+            width: double.infinity,
+            height: 60,
+            margin: const EdgeInsets.only(bottom: 2),
+            alignment: Alignment.topCenter,
+            child: Column(
+              children: [
+                isSelected
+                    ? SizedBox(
+                        width: screenWidth,
+                        child: TweenAnimationBuilder<double>(
+                          tween: Tween<double>(begin: 0.0, end: 1.0),
+                          duration: const Duration(milliseconds: 300),
+                          builder: (context, value, _) {
+                            return ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                bottomLeft: Radius.circular(4),
+                                bottomRight: Radius.circular(4),
+                              ),
+                              child: LinearProgressIndicator(
+                                value: value,
+                                minHeight: 4,
+                                valueColor:
+                                    const AlwaysStoppedAnimation(primaryColor),
+                                backgroundColor: white,
+                              ),
+                            );
+                          },
+                        ),
+                      )
+                    : SizedBox(
+                        height: 4,
+                        width: screenWidth,
+                      ),
+                const Spacer(),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset(
+                      imageIcon,
+                      height: 22,
+                      width: 22,
+                      color: isSelected ? primaryColor : grey,
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      label,
+                      style: textTheme?.titleMedium,
+                    ),
+                  ],
+                ),
+                const Spacer(),
+              ],
+            ),
+          ),
+        ),
+      );
 }
