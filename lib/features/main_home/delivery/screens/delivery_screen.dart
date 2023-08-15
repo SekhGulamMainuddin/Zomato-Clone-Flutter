@@ -1,14 +1,15 @@
 import 'dart:math';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
-import 'package:zomato_clone/features/home/widgets/add_filter_widget.dart';
-import 'package:zomato_clone/features/home/widgets/recipe_item_widget.dart';
-import 'package:zomato_clone/features/home/widgets/restaurant_item_widget.dart';
-import 'package:zomato_clone/models/pair.dart';
+import 'package:zomato_clone/features/main_home/home/widgets/add_filter_widget.dart';
+import 'package:zomato_clone/features/main_home/home/widgets/recipe_item_widget.dart';
+import 'package:zomato_clone/features/main_home/home/widgets/restaurant_item_widget.dart';
+import 'package:zomato_clone/common/models/pair.dart';
+import 'package:zomato_clone/features/main_home/profile/screens/profile_screen.dart';
+import 'package:zomato_clone/routes/navigation.dart';
 
 class DeliveryScreen extends ConsumerStatefulWidget {
   const DeliveryScreen({Key? key}) : super(key: key);
@@ -18,7 +19,6 @@ class DeliveryScreen extends ConsumerStatefulWidget {
 }
 
 class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
-
   var location = "Cuttack";
   final searchController = TextEditingController();
 
@@ -37,8 +37,8 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
           child: PreferredSize(
             preferredSize: const Size.fromHeight(55),
             child: Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 10.0, vertical: 10),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
               child: Row(
                 children: [
                   const Icon(
@@ -80,8 +80,7 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                   ),
                   const Spacer(),
                   InkWell(
-                    borderRadius:
-                    const BorderRadius.all(Radius.circular(10)),
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
                     splashColor: lightGrey,
                     onTap: () {},
                     child: Container(
@@ -97,8 +96,7 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                               width: 1,
                             ),
                           ),
-                          borderRadius:
-                          BorderRadius.all(Radius.circular(10))),
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
                       child: Image.asset(
                         "assets/images/change_language_icon.png",
                       ),
@@ -107,11 +105,16 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                   const SizedBox(
                     width: 10,
                   ),
-                  const CircleAvatar(
-                      radius: 19,
-                      backgroundColor: white,
-                      backgroundImage: CachedNetworkImageProvider(
-                          "https://cdn.pixabay.com/photo/2018/02/08/22/27/flower-3140492_1280.jpg")),
+                  GestureDetector(
+                    onTap: () {
+                      ref.watch(homeNavigation.notifier).state = 1;
+                    },
+                    child: const CircleAvatar(
+                        radius: 19,
+                        backgroundColor: white,
+                        backgroundImage: CachedNetworkImageProvider(
+                            "https://cdn.pixabay.com/photo/2018/02/08/22/27/flower-3140492_1280.jpg")),
+                  ),
                 ],
               ),
             ),
@@ -138,8 +141,7 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                 Expanded(
                   child: Container(
                     decoration: const BoxDecoration(
-                      border:
-                      Border(right: BorderSide(color: grey, width: 1)),
+                      border: Border(right: BorderSide(color: grey, width: 1)),
                     ),
                     child: Text(
                       "Restaurant name or a dish...",
@@ -168,8 +170,8 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
           delegate: SliverChildListDelegate(
             [
               Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 15, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                 child: Column(
                   children: [
                     const SizedBox(
@@ -196,7 +198,7 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                       padding: const EdgeInsets.all(15).copyWith(right: 0),
                       decoration: BoxDecoration(
                         borderRadius:
-                        const BorderRadius.all(Radius.circular(15)),
+                            const BorderRadius.all(Radius.circular(15)),
                         border: Border.fromBorderSide(
                           BorderSide(
                               color: lightGrey.withOpacity(0.8), width: 1),
@@ -206,8 +208,7 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
-                            mainAxisAlignment:
-                            MainAxisAlignment.spaceEvenly,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
@@ -255,7 +256,7 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                           ),
                           Padding(
                             padding:
-                            const EdgeInsets.symmetric(horizontal: 8.0),
+                                const EdgeInsets.symmetric(horizontal: 8.0),
                             child: Text(
                               "WHAT'S ON YOUR MIND?",
                               style: textTheme.bodyLarge?.copyWith(
@@ -288,16 +289,14 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                               children: [
                                 RecipeItemWidget(
                                   recipeName: "Biryani",
-                                  recipeImage:
-                                  "assets/images/biryani_icon.png",
+                                  recipeImage: "assets/images/biryani_icon.png",
                                 ),
                                 SizedBox(
                                   height: 15,
                                 ),
                                 RecipeItemWidget(
                                   recipeName: "Fired Rice",
-                                  recipeImage:
-                                  "assets/images/fried_rice.png",
+                                  recipeImage: "assets/images/fried_rice.png",
                                 )
                               ],
                             ),
@@ -321,8 +320,7 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                           ),
                         ),
                         Padding(
-                          padding:
-                          const EdgeInsets.symmetric(horizontal: 8.0)
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0)
                               .copyWith(bottom: 10),
                           child: Text(
                             "ALL RESTAURANTS",
@@ -401,24 +399,23 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
               imageUrl: Random().nextBool() && Random().nextBool()
                   ? "https://images.pexels.com/photos/5560763/pexels-photo-5560763.jpeg?cs=srgb&dl=pexels-saveurs-secretes-5560763.jpg&fm=jpg"
                   : Random().nextBool()
-                  ? "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg?w=2000"
-                  : Random().nextBool()
-                  ? "https://c.ndtvimg.com/2022-04/fq5cs53_biryani-doubletree-by-hilton_625x300_12_April_22.jpg"
-                  : "https://recipesblob.oetker.in/assets/6c0ac2f3ce204d3d9bb1df9709fc06c9/636x380/shahi-paneer.jpg",
+                      ? "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg?w=2000"
+                      : Random().nextBool()
+                          ? "https://c.ndtvimg.com/2022-04/fq5cs53_biryani-doubletree-by-hilton_625x300_12_April_22.jpg"
+                          : "https://recipesblob.oetker.in/assets/6c0ac2f3ce204d3d9bb1df9709fc06c9/636x380/shahi-paneer.jpg",
               restaurantName: "Anjana Restaurant",
               isFavorite: Random().nextBool(),
               rating: (Random().nextInt(10).toDouble() +
-                  (Random().nextDouble() % 5)) %
+                      (Random().nextDouble() % 5)) %
                   5,
               speciality: Random().nextBool() ? "Biryani" : "Indian",
-              foodType:
-              Random().nextBool() ? "North Indian" : "South Indian",
+              foodType: Random().nextBool() ? "North Indian" : "South Indian",
               lowestPriceOfItem: Random().nextInt(5000).toDouble(),
               deliveryTime:
-              Pair(Random().nextInt(50), Random().nextInt(70) + 50),
+                  Pair(Random().nextInt(50), Random().nextInt(70) + 50),
               distance: Random().nextInt(50000).toDouble(),
               discount:
-              "${Random().nextInt(60)}% OFF up to ${Random().nextInt(100)}",
+                  "${Random().nextInt(60)}% OFF up to ${Random().nextInt(100)}",
             );
           },
         ),

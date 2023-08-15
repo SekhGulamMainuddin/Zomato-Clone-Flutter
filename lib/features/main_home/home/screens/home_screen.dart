@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
-import 'package:zomato_clone/features/delivery/screens/delivery_screen.dart';
-import 'package:zomato_clone/features/money/screens/money_screen.dart';
+import 'package:zomato_clone/features/main_home/delivery/screens/delivery_screen.dart';
+import 'package:zomato_clone/features/main_home/money/screens/money_screen.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   static const routeName = "/home-screen";
-
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -110,7 +109,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                               ),
                               child: LinearProgressIndicator(
                                 value: value,
-                                minHeight: 4,
+                                minHeight: 3.5,
                                 valueColor:
                                     const AlwaysStoppedAnimation(primaryColor),
                                 backgroundColor: white,

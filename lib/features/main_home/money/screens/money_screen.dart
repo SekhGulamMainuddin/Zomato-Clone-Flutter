@@ -4,7 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:styled_text/tags/styled_text_tag.dart';
 import 'package:styled_text/widgets/styled_text.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
-import 'package:zomato_clone/features/money/widgets/gift_banner_widget.dart';
+import 'package:zomato_clone/features/main_home/money/widgets/gift_banner_widget.dart';
+import 'package:zomato_clone/features/main_home/profile/screens/profile_screen.dart';
+import 'package:zomato_clone/routes/navigation.dart';
 
 class MoneyScreen extends ConsumerStatefulWidget {
   const MoneyScreen({super.key});
@@ -19,7 +21,6 @@ class _MoneyScreenState extends ConsumerState<MoneyScreen> {
   @override
   Widget build(BuildContext context) {
     textTheme = Theme.of(context).textTheme;
-    print("CALLED");
     return Container(
       color: ghostWhite,
       height: double.infinity,
@@ -106,13 +107,15 @@ class _MoneyScreenState extends ConsumerState<MoneyScreen> {
                                         ),
                                       ),
                                       const Spacer(),
-                                      const CircleAvatar(
-                                        radius: 19,
-                                        backgroundColor: white,
-                                        backgroundImage:
-                                            CachedNetworkImageProvider(
-                                          "https://cdn.pixabay.com/photo/2018/02/08/22/27/flower-3140492_1280.jpg",
-                                        ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          ref.watch(homeNavigation.notifier).state = 1;
+                                        },
+                                        child: const CircleAvatar(
+                                            radius: 19,
+                                            backgroundColor: white,
+                                            backgroundImage: CachedNetworkImageProvider(
+                                                "https://cdn.pixabay.com/photo/2018/02/08/22/27/flower-3140492_1280.jpg")),
                                       ),
                                     ],
                                   ),

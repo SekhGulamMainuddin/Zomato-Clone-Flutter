@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
-import 'package:zomato_clone/models/pair.dart';
+import 'package:zomato_clone/common/models/pair.dart';
 
 class RestaurantItemWidget extends StatelessWidget {
   final String imageUrl;

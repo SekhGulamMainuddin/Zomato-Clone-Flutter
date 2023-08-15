@@ -3,9 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/common/utils/utils.dart';
 import 'package:zomato_clone/common/widgets/custom_button.dart';
-import 'package:zomato_clone/features/home/screens/home_screen.dart';
 import 'package:zomato_clone/features/loginandsignup/controller/login_signup_controller.dart';
 import 'package:zomato_clone/features/loginandsignup/screens/verify_otp_screen.dart';
+import 'package:zomato_clone/features/main_home/screens/main_home_screen.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
   static const routeName = "/login-screen";
@@ -32,7 +32,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             showSnackBar(context, "New User to be created");
           } else {
             Navigator.pushNamedAndRemoveUntil(
-                context, HomeScreen.routeName, (route) => false);
+                context, MainHomeScreen.routeName, (route) => false);
           }
         }
         setState(() {
@@ -56,7 +56,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             showSnackBar(context, "New User to be created");
           } else {
             Navigator.pushNamedAndRemoveUntil(
-                context, HomeScreen.routeName, (route) => false);
+                context, MainHomeScreen.routeName, (route) => false);
           }
         }
       },
