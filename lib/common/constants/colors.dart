@@ -15,6 +15,7 @@ const MaterialColor primarySwatch = MaterialColor(0xFFE13742, <int, Color>{
   900: Color(0xFFCD161D),
 });
 const white = Colors.white;
+const ghostWhite = Color(0xfff5f6fb);
 const lightPink = Color(0xFFfbbac1);
 const darkRed = Color(0xffc4303e);
 const lightGrey = Color(0xffe6e9ef);
@@ -32,4 +33,22 @@ const lightGreenColor = Color(0xff37b851);
 const blueColor = Color(0xff2b6ee2);
 const lightBlueColor = Color(0xff417cdb);
 const yellowColor = Color(0xfff2c418);
-
+const maastrichtBlue = Color(0xff051429);
+const fadedEdge1 = LinearGradient(
+  begin: Alignment.centerLeft,
+  end: Alignment.centerRight,
+  colors: [
+    maastrichtBlue,
+    grey,
+    midLightGrey
+  ],
+);
+const fadedEdge2 = LinearGradient(
+  begin: Alignment.centerLeft,
+  end: Alignment.centerRight,
+  colors: [
+    midLightGrey,
+    grey,
+    maastrichtBlue
+  ],
+);

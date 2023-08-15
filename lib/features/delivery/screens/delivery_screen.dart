@@ -78,7 +78,7 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                       ],
                     ),
                   ),
-                  const Expanded(child: SizedBox()),
+                  const Spacer(),
                   InkWell(
                     borderRadius:
                     const BorderRadius.all(Radius.circular(10)),

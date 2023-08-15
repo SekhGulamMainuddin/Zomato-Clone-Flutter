@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/features/delivery/screens/delivery_screen.dart';
+import 'package:zomato_clone/features/money/screens/money_screen.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   static const routeName = "/home-screen";
@@ -24,9 +25,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     _currentPage = 0;
     screens = [
       const DeliveryScreen(),
-      const Center(
-        child: Text("Money"),
-      ),
+      const MoneyScreen(),
     ];
   }
 
