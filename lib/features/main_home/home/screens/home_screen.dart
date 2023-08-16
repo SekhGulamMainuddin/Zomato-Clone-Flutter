@@ -12,7 +12,11 @@ class HomeScreen extends ConsumerStatefulWidget {
   ConsumerState<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends ConsumerState<HomeScreen> {
+class _HomeScreenState extends ConsumerState<HomeScreen> with AutomaticKeepAliveClientMixin<HomeScreen>{
+
+  @override
+  bool get wantKeepAlive => true;
+
   List<Widget> screens = [];
   var _currentPage = 0;
   var screenWidth = 0.0;
@@ -30,6 +34,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     textTheme = Theme.of(context).textTheme;
     screenWidth = MediaQuery.sizeOf(context).width * 0.35;
     return Scaffold(

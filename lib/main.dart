@@ -28,22 +28,22 @@ class MyApp extends StatelessWidget {
     const displayTextStyle = TextStyle(
       fontWeight: FontWeight.w800,
       fontSize: 22,
-      color: black,
+      color: darkBlack,
     );
     const titleTextStyle = TextStyle(
       fontSize: 20,
       fontWeight: FontWeight.w700,
-      color: black,
+      color: darkBlack,
     );
     const labelTextStyle = TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w600,
-      color: black,
+      color: darkBlack,
     );
     const bodyTextStyle = TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w400,
-      color: black,
+      color: darkBlack,
     );
     return MaterialApp(
       debugShowCheckedModeBanner: false,

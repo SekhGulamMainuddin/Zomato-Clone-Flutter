@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
+import 'package:zomato_clone/common/widgets/circular_image.dart';
 import 'package:zomato_clone/features/main_home/home/widgets/add_filter_widget.dart';
 import 'package:zomato_clone/features/main_home/home/widgets/recipe_item_widget.dart';
 import 'package:zomato_clone/features/main_home/home/widgets/restaurant_item_widget.dart';
@@ -109,11 +110,11 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                     onTap: () {
                       ref.watch(homeNavigation.notifier).state = 1;
                     },
-                    child: const CircleAvatar(
-                        radius: 19,
-                        backgroundColor: white,
-                        backgroundImage: CachedNetworkImageProvider(
-                            "https://cdn.pixabay.com/photo/2018/02/08/22/27/flower-3140492_1280.jpg")),
+                    child: const CircularImage(
+                      imageLink:
+                          "https://cdn.pixabay.com/photo/2018/02/08/22/27/flower-3140492_1280.jpg",
+                      radius: 19,
+                    ),
                   ),
                 ],
               ),

@@ -6,6 +6,7 @@ import 'package:zomato_clone/routes/navigation.dart';
 
 class MainHomeScreen extends ConsumerStatefulWidget {
   static const routeName = "/main-home-screen";
+
   const MainHomeScreen({super.key});
 
   @override
@@ -20,13 +21,13 @@ class _MainHomeScreenState extends ConsumerState<MainHomeScreen> {
   @override
   void initState() {
     super.initState();
-    screens= [
+    screens = [
       const HomeScreen(),
       const ProfileScreen(),
     ];
     WidgetsBinding.instance.addPostFrameCallback((_) {
       ref.listenManual(homeNavigation, (previous, next) {
-        pageController.animateToPage(next, duration: const Duration(seconds: 1), curve: Curves.easeOut);
+        pageController.jumpToPage(next);
       });
     });
   }
@@ -42,7 +43,9 @@ class _MainHomeScreenState extends ConsumerState<MainHomeScreen> {
             duration: const Duration(milliseconds: 200),
             curve: Curves.easeOut,
           );
-          ref.watch(homeNavigation.notifier).state= 0;
+          ref
+              .watch(homeNavigation.notifier)
+              .state = 0;
           return false;
         }
       },
