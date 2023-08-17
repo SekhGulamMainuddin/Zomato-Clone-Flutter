@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
+import 'package:zomato_clone/features/loginandsignup/controller/login_signup_controller.dart';
 import 'package:zomato_clone/features/main_home/profile/widgets/profile_header_widget.dart';
 import 'package:zomato_clone/routes/navigation.dart';
 
@@ -46,8 +47,8 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         padding: const EdgeInsets.all(12.0),
                         child: Column(
                           children: [
-                            const SizedBox(
-                              height: 165,
+                            SizedBox(
+                              height: ref.read(loginSignUpControllerProvider).isUserSigned ? 155 : 115,
                             ),
                             likesPaymentsSettingsWidget(),
                             const SizedBox(
@@ -193,7 +194,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
             color: white,
             child: InkWell(
               onTap: onClick,
-              splashColor: primaryColor,
+              splashColor: lightGrey,
               child: Padding(
                 padding: const EdgeInsets.all(20),
                 child: Column(

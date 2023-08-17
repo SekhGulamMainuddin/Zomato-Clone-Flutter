@@ -32,4 +32,6 @@ class LoginSignUpController{
     }
   }
 
+  bool get isUserSigned  => repository.isUserSignedIn();
+
 }

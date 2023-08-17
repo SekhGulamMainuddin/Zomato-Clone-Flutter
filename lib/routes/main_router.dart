@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:zomato_clone/features/loginandsignup/screens/login_screen.dart';
 import 'package:zomato_clone/features/loginandsignup/screens/verify_otp_screen.dart';
 import 'package:zomato_clone/features/main_home/profile/screens/activity_screen.dart';
+import 'package:zomato_clone/features/main_home/restaurants_and_dishes/restaurants_and_dishes_screen.dart';
 import 'package:zomato_clone/features/main_home/screens/main_home_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
@@ -15,6 +16,9 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       break;
     case ActivityScreen.routeName:
       page = const ActivityScreen();
+      break;
+    case RestaurantsAndDishesScreen.routeName:
+      page = const RestaurantsAndDishesScreen();
       break;
     case VerifyOTPScreen.routeName:
       final arguments = routeSettings.arguments as Map<String, dynamic>;

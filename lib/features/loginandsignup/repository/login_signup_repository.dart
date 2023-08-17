@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -106,6 +108,11 @@ class LoginSignUpRepository {
       debugPrint(e.toString());
       return Pair(null, e.toString());
     }
+  }
+
+  bool isUserSignedIn() {
+    return true;
+    return _firebaseAuth.currentUser!=null;
   }
 
 }

@@ -1,15 +1,16 @@
 import 'dart:math';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
+import 'package:zomato_clone/common/widgets/add_filter_widget.dart';
 import 'package:zomato_clone/common/widgets/circular_image.dart';
-import 'package:zomato_clone/features/main_home/home/widgets/add_filter_widget.dart';
+import 'package:zomato_clone/common/widgets/search_bar_widget.dart';
 import 'package:zomato_clone/features/main_home/home/widgets/recipe_item_widget.dart';
-import 'package:zomato_clone/features/main_home/home/widgets/restaurant_item_widget.dart';
+import 'package:zomato_clone/common/widgets/restaurant_item_widget.dart';
 import 'package:zomato_clone/common/models/pair.dart';
-import 'package:zomato_clone/features/main_home/profile/screens/profile_screen.dart';
+import 'package:zomato_clone/features/main_home/restaurants_and_dishes/restaurants_and_dishes_screen.dart';
+import 'package:zomato_clone/features/main_home/restaurants_and_dishes/restaurants_and_dishes_screen.dart';
 import 'package:zomato_clone/routes/navigation.dart';
 
 class DeliveryScreen extends ConsumerStatefulWidget {
@@ -122,46 +123,13 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
           ),
         ),
         SliverAppBar(
-          title: Container(
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(Radius.circular(15)),
-              border: Border.fromBorderSide(
-                BorderSide(color: lightGrey.withOpacity(0.8), width: 1),
-              ),
+          title: SearchBarWidget(
+            leading: Pair(
+              Icons.search_rounded,
+              () {},
             ),
-            margin: const EdgeInsets.only(top: 15, bottom: 10),
-            child: Row(
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.search_rounded,
-                    color: primaryColor,
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      border: Border(right: BorderSide(color: grey, width: 1)),
-                    ),
-                    child: Text(
-                      "Restaurant name or a dish...",
-                      style: textTheme.bodyLarge?.copyWith(
-                        color: midLightGrey,
-                        fontSize: 17,
-                      ),
-                    ),
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.mic_none,
-                    color: primaryColor,
-                  ),
-                ),
-              ],
-            ),
+            hint: "Restaurant name or a dish...",
+            onClick: () {},
           ),
           backgroundColor: white,
           elevation: 0,
@@ -277,27 +245,33 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                       ),
                     ),
                     Container(
-                      height: 215,
+                      height: 225,
                       padding: const EdgeInsets.symmetric(vertical: 20),
                       child: ListView.builder(
                         padding: const EdgeInsets.only(right: 15),
                         itemCount: 10,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
-                          return const Padding(
-                            padding: EdgeInsets.only(left: 15),
+                          return Padding(
+                            padding: const EdgeInsets.only(left: 15),
                             child: Column(
                               children: [
                                 RecipeItemWidget(
                                   recipeName: "Biryani",
                                   recipeImage: "assets/images/biryani_icon.png",
+                                  onClick: () {
+                                    Navigator.pushNamed(context, RestaurantsAndDishesScreen.routeName);
+                                  },
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 15,
                                 ),
                                 RecipeItemWidget(
                                   recipeName: "Fired Rice",
                                   recipeImage: "assets/images/fried_rice.png",
+                                  onClick: () {
+                                    Navigator.pushNamed(context, RestaurantsAndDishesScreen.routeName);
+                                  },
                                 )
                               ],
                             ),
