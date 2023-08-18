@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:zomato_clone/features/loginandsignup/screens/login_screen.dart';
 import 'package:zomato_clone/features/loginandsignup/screens/verify_otp_screen.dart';
-import 'package:zomato_clone/features/main_home/profile/screens/activity_screen.dart';
-import 'package:zomato_clone/features/main_home/restaurants_and_dishes/restaurants_and_dishes_screen.dart';
-import 'package:zomato_clone/features/main_home/screens/main_home_screen.dart';
+import 'package:zomato_clone/features/home/main_home/screens/main_home_screen.dart';
+import 'package:zomato_clone/features/home/profile/screens/activity_screen.dart';
+import 'package:zomato_clone/features/home/restaurants_and_dishes/restaurants_and_dishes_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   dynamic page;

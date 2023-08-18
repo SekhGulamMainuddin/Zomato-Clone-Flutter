@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
-import 'package:zomato_clone/features/main_home/delivery/screens/delivery_screen.dart';
-import 'package:zomato_clone/features/main_home/money/screens/money_screen.dart';
+import 'package:zomato_clone/features/home/delivery/screens/delivery_screen.dart';
+import 'package:zomato_clone/features/home/money/screens/money_screen.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   static const routeName = "/home-screen";

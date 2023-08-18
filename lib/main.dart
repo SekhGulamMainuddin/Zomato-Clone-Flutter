@@ -1,11 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:zomato_clone/features/main_home/screens/main_home_screen.dart';
+import 'package:zomato_clone/features/home/main_home/screens/main_home_screen.dart';
 import 'package:zomato_clone/routes/main_router.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
-import 'package:zomato_clone/features/main_home/home/screens/home_screen.dart';
 import 'package:zomato_clone/firebase_options.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,7 +48,18 @@ class MyApp extends StatelessWidget {
     );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      onGenerateTitle: (context) => AppLocalizations.of(context)!.appName,
+      localizationsDelegates: const [
+        AppLocalizations.delegate, // Add this line
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en'), // English
+        Locale('hi'), // Spanish
+        Locale('or'), // Spanish
+      ],
       theme: ThemeData(
         fontFamily: "custom_font",
         textTheme: TextTheme(

@@ -1,22 +1,20 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/common/models/pair.dart';
 import 'package:zomato_clone/common/widgets/add_filter_widget.dart';
-import 'package:zomato_clone/common/widgets/delivery_time_and_distance_widget.dart';
-import 'package:zomato_clone/common/widgets/discount_widget.dart';
-import 'package:zomato_clone/common/widgets/restaurant_name_and_rating_widget.dart';
-import 'package:zomato_clone/common/widgets/restaurant_with_dishes_item_widget.dart';
-import 'package:zomato_clone/features/main_home/home/widgets/recipe_item_widget.dart';
+import 'package:zomato_clone/features/home/home/widgets/recipe_item_widget.dart';
+import 'package:zomato_clone/common/widgets/restaurant_item_widget.dart';
 
-class DishesScreen extends ConsumerStatefulWidget {
-  const DishesScreen({Key? key}) : super(key: key);
+class RestaurantsScreen extends ConsumerStatefulWidget {
+  const RestaurantsScreen({Key? key}) : super(key: key);
 
   @override
-  ConsumerState createState() => _DishesScreenState();
+  ConsumerState createState() => _RestaurantsScreenState();
 }
 
-class _DishesScreenState extends ConsumerState<DishesScreen>
+class _RestaurantsScreenState extends ConsumerState<RestaurantsScreen>
     with TickerProviderStateMixin {
   late TabController controller;
   var _currentSelectedItem = 0;
@@ -91,7 +89,7 @@ class _DishesScreenState extends ConsumerState<DishesScreen>
         ),
         SliverToBoxAdapter(
           child: Padding(
-            padding: const EdgeInsets.only(top: 30, bottom: 16),
+            padding: const EdgeInsets.only(top: 30, bottom: 14),
             child: Text(
               "ALL RESTAURANTS\nDELIVERING BIRYANI",
               style: textTheme.bodyLarge?.copyWith(
@@ -104,8 +102,31 @@ class _DishesScreenState extends ConsumerState<DishesScreen>
           ),
         ),
         SliverList.builder(
-          itemCount: 1000,
-          itemBuilder: (context, index) => const RestaurantWithDishesItemWidget(),
+          itemCount: 100000,
+          itemBuilder: (context, index) {
+            return RestaurantItemWidget(
+              imageUrl: Random().nextBool() && Random().nextBool()
+                  ? "https://images.pexels.com/photos/5560763/pexels-photo-5560763.jpeg?cs=srgb&dl=pexels-saveurs-secretes-5560763.jpg&fm=jpg"
+                  : Random().nextBool()
+                      ? "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg?w=2000"
+                      : Random().nextBool()
+                          ? "https://c.ndtvimg.com/2022-04/fq5cs53_biryani-doubletree-by-hilton_625x300_12_April_22.jpg"
+                          : "https://recipesblob.oetker.in/assets/6c0ac2f3ce204d3d9bb1df9709fc06c9/636x380/shahi-paneer.jpg",
+              restaurantName: "Anjana Restaurant",
+              isFavorite: Random().nextBool(),
+              rating: (Random().nextInt(10).toDouble() +
+                      (Random().nextDouble() % 5)) %
+                  5,
+              speciality: Random().nextBool() ? "Biryani" : "Indian",
+              foodType: Random().nextBool() ? "North Indian" : "South Indian",
+              lowestPriceOfItem: Random().nextInt(5000).toDouble(),
+              deliveryTime:
+                  Pair(Random().nextInt(50), Random().nextInt(70) + 50),
+              distance: Random().nextInt(50000).toDouble(),
+              discount:
+                  "${Random().nextInt(60)}% OFF up to ${Random().nextInt(100)}",
+            );
+          },
         ),
       ],
     );

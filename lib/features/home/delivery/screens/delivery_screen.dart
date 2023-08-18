@@ -6,11 +6,11 @@ import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/common/widgets/add_filter_widget.dart';
 import 'package:zomato_clone/common/widgets/circular_image.dart';
 import 'package:zomato_clone/common/widgets/search_bar_widget.dart';
-import 'package:zomato_clone/features/main_home/home/widgets/recipe_item_widget.dart';
+import 'package:zomato_clone/features/home/home/widgets/recipe_item_widget.dart';
 import 'package:zomato_clone/common/widgets/restaurant_item_widget.dart';
 import 'package:zomato_clone/common/models/pair.dart';
-import 'package:zomato_clone/features/main_home/restaurants_and_dishes/restaurants_and_dishes_screen.dart';
-import 'package:zomato_clone/features/main_home/restaurants_and_dishes/restaurants_and_dishes_screen.dart';
+import 'package:zomato_clone/features/home/restaurants_and_dishes/restaurants_and_dishes_screen.dart';
+import 'package:zomato_clone/features/home/restaurants_and_dishes/restaurants_and_dishes_screen.dart';
 import 'package:zomato_clone/routes/navigation.dart';
 
 class DeliveryScreen extends ConsumerStatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zomato_clone/features/main_home/home/screens/home_screen.dart';
-import 'package:zomato_clone/features/main_home/profile/screens/profile_screen.dart';
+import 'package:zomato_clone/features/home/home/screens/home_screen.dart';
+import 'package:zomato_clone/features/home/profile/screens/profile_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   dynamic page;

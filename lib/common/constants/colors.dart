@@ -33,6 +33,7 @@ const lightGreenColor = Color(0xff37b851);
 const blueColor = Color(0xff2b6ee2);
 const lightBlueColor = Color(0xff417cdb);
 const yellowColor = Color(0xfff2c418);
+const crayola = Color(0xffa85d41);
 const jackoBean = Color(0xff413b2d);
 const deepChampagne = Color(0xfff5d6a7);
 const spanishBistre = Color(0xff8b6e31);

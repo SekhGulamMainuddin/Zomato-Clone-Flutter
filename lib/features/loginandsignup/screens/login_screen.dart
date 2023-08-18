@@ -5,7 +5,7 @@ import 'package:zomato_clone/common/utils/utils.dart';
 import 'package:zomato_clone/common/widgets/custom_button.dart';
 import 'package:zomato_clone/features/loginandsignup/controller/login_signup_controller.dart';
 import 'package:zomato_clone/features/loginandsignup/screens/verify_otp_screen.dart';
-import 'package:zomato_clone/features/main_home/screens/main_home_screen.dart';
+import 'package:zomato_clone/features/home/main_home/screens/main_home_screen.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
   static const routeName = "/login-screen";

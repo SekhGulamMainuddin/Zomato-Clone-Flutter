@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/common/utils/utils.dart';
 import 'package:zomato_clone/common/widgets/star_rating.dart';
+import 'package:zomato_clone/common/widgets/veg_icon_widget.dart';
 
 class DishesItemWidget extends StatelessWidget {
   const DishesItemWidget({Key? key}) : super(key: key);
@@ -75,20 +76,7 @@ class DishesItemWidget extends StatelessWidget {
                 ),
               ],
             ),
-            Container(
-              height: 20,
-              width: 20,
-              padding: const EdgeInsets.all(4),
-              decoration: BoxDecoration(
-                  color: white,
-                  borderRadius: BorderRadius.circular(5),
-                  border: Border.all(color: greenColor, width: 1.5)),
-              child: const Icon(
-                Icons.circle,
-                color: greenColor,
-                size: 10,
-              ),
-            ),
+            const VegIconWidget(),
             Padding(
               padding: const EdgeInsets.only(top: 6.0, bottom: 8),
               child: Text(

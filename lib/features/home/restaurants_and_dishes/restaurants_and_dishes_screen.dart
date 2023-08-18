@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/common/models/pair.dart';
 import 'package:zomato_clone/common/widgets/search_bar_widget.dart';
-import 'package:zomato_clone/features/main_home/restaurants_and_dishes/dishes/screens/dishes_screen.dart';
-import 'package:zomato_clone/features/main_home/restaurants_and_dishes/restaurants/screens/restaurants_screen.dart';
+import 'package:zomato_clone/features/home/restaurants_and_dishes/dishes/screens/dishes_screen.dart';
+import 'package:zomato_clone/features/home/restaurants_and_dishes/restaurants/screens/restaurants_screen.dart';
 
 class RestaurantsAndDishesScreen extends ConsumerStatefulWidget {
   static const routeName = "/restaurants-and-dishes-screen";
