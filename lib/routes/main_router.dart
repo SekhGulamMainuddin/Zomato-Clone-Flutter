@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zomato_clone/features/home/restaurant_page/screens/restaurant_page_screen.dart';
 import 'package:zomato_clone/features/loginandsignup/screens/login_screen.dart';
 import 'package:zomato_clone/features/loginandsignup/screens/verify_otp_screen.dart';
 import 'package:zomato_clone/features/home/main_home/screens/main_home_screen.dart';
@@ -19,6 +20,9 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       break;
     case RestaurantsAndDishesScreen.routeName:
       page = const RestaurantsAndDishesScreen();
+      break;
+      case RestaurantPageScreen.routeName:
+      page = const RestaurantPageScreen();
       break;
     case VerifyOTPScreen.routeName:
       final arguments = routeSettings.arguments as Map<String, dynamic>;

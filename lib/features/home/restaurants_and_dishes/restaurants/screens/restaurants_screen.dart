@@ -6,6 +6,7 @@ import 'package:zomato_clone/common/models/pair.dart';
 import 'package:zomato_clone/common/widgets/add_filter_widget.dart';
 import 'package:zomato_clone/features/home/home/widgets/recipe_item_widget.dart';
 import 'package:zomato_clone/common/widgets/restaurant_item_widget.dart';
+import 'package:zomato_clone/features/home/restaurant_page/screens/restaurant_page_screen.dart';
 
 class RestaurantsScreen extends ConsumerStatefulWidget {
   const RestaurantsScreen({Key? key}) : super(key: key);
@@ -125,6 +126,9 @@ class _RestaurantsScreenState extends ConsumerState<RestaurantsScreen>
               distance: Random().nextInt(50000).toDouble(),
               discount:
                   "${Random().nextInt(60)}% OFF up to ${Random().nextInt(100)}",
+              onClick: (restaurant){
+                Navigator.of(context, rootNavigator: true).pushNamed(RestaurantPageScreen.routeName);
+              },
             );
           },
         ),

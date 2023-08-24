@@ -7,6 +7,7 @@ class DeliveryTimeAndDistanceWidget extends StatelessWidget {
   final double distance;
   final Color? textColor;
   final EdgeInsets padding;
+  final bool addPadding;
 
   const DeliveryTimeAndDistanceWidget({
     Key? key,
@@ -14,6 +15,7 @@ class DeliveryTimeAndDistanceWidget extends StatelessWidget {
     required this.distance,
     this.textColor,
     this.padding = EdgeInsets.zero,
+    this.addPadding = true,
   }) : super(key: key);
 
   @override
@@ -26,7 +28,7 @@ class DeliveryTimeAndDistanceWidget extends StatelessWidget {
       distanceText = "$distance m";
     }
     return Padding(
-      padding: padding == EdgeInsets.zero
+      padding: padding == EdgeInsets.zero && addPadding
           ? const EdgeInsets.only(top: 2, bottom: 8)
           : padding,
       child: Row(

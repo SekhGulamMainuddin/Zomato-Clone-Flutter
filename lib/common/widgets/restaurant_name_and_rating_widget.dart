@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
+import 'package:zomato_clone/common/widgets/rating_widget.dart';
 
 class RestaurantNameAndRatingWidget extends StatelessWidget {
   final String restaurantName;
@@ -27,34 +28,8 @@ class RestaurantNameAndRatingWidget extends StatelessWidget {
           ),
         ),
         const Spacer(),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-          decoration: BoxDecoration(
-            color: rating > 3
-                ? greenColor
-                : rating > 2
-                    ? yellowColor
-                    : primaryColor,
-            borderRadius: BorderRadius.circular(7),
-          ),
-          alignment: Alignment.center,
-          child: Row(
-            children: [
-              Text(
-                rating.toStringAsFixed(1),
-                style:
-                    textTheme.titleSmall?.copyWith(color: white, fontSize: 14),
-              ),
-              const SizedBox(
-                width: 2,
-              ),
-              const Icon(
-                Icons.star,
-                color: white,
-                size: 14,
-              ),
-            ],
-          ),
+        RatingWidget(
+          rating: rating,
         ),
       ],
     );

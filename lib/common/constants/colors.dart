@@ -41,6 +41,7 @@ const culturedColor = Color(0xfff3f4f8);
 const manatee = Color(0xff9296a5);
 const honeydew = Color(0xffeaffee);
 const lavenderBlush = Color(0xffffedef);
+const deepChestnut = Color(0xffc34c40);
 const goldMemberSizeGradient = LinearGradient(
   begin: Alignment.centerLeft,
   end: Alignment.centerRight,
