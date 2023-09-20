@@ -2,8 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:zomato_clone/features/home/home/screens/home_screen.dart';
 import 'package:zomato_clone/features/home/main_home/screens/main_home_screen.dart';
 import 'package:zomato_clone/features/home/restaurant_page/screens/restaurant_page_screen.dart';
+import 'package:zomato_clone/features/loginandsignup/screens/login_screen.dart';
 import 'package:zomato_clone/routes/main_router.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/firebase_options.dart';
@@ -106,7 +108,7 @@ class MyApp extends StatelessWidget {
         progressIndicatorTheme:
             const ProgressIndicatorThemeData(color: primaryColor),
       ),
-      home: const RestaurantPageScreen(),
+      home: const MainHomeScreen(),
       onGenerateRoute: generateRoute,
     );
   }

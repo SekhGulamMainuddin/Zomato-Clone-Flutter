@@ -137,6 +137,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  expandable_sliver_list:
+    dependency: "direct main"
+    description:
+      name: expandable_sliver_list
+      sha256: "89889a16d9c6b7211675d2349b6b3501eed7629d9b836e9dcacffbd42c57f398"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.1.1"
   facebook_auth_desktop:
     dependency: transitive
     description:

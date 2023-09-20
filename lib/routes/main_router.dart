@@ -21,7 +21,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
     case RestaurantsAndDishesScreen.routeName:
       page = const RestaurantsAndDishesScreen();
       break;
-      case RestaurantPageScreen.routeName:
+    case RestaurantPageScreen.routeName:
       page = const RestaurantPageScreen();
       break;
     case VerifyOTPScreen.routeName:

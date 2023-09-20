@@ -127,7 +127,7 @@ class _RestaurantsScreenState extends ConsumerState<RestaurantsScreen>
               discount:
                   "${Random().nextInt(60)}% OFF up to ${Random().nextInt(100)}",
               onClick: (restaurant){
-                Navigator.of(context, rootNavigator: true).pushNamed(RestaurantPageScreen.routeName);
+                // Navigator.of(context, rootNavigator: true).pushNamed(RestaurantPageScreen.routeName);
               },
             );
           },

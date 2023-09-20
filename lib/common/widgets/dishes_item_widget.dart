@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/common/utils/utils.dart';
+import 'package:zomato_clone/common/widgets/add_button.dart';
 import 'package:zomato_clone/common/widgets/star_rating.dart';
 import 'package:zomato_clone/common/widgets/veg_or_non_veg_icon_widget.dart';
 
@@ -36,42 +37,12 @@ class DishesItemWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 12.0),
+                const Padding(
+                  padding: EdgeInsets.only(right: 12.0),
                   child: SizedBox(
                     width: 98,
                     height: 35,
-                    child: OutlinedButton(
-                      onPressed: () {},
-                      style: OutlinedButton.styleFrom(
-                          backgroundColor: white,
-                          padding: const EdgeInsets.all(4),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          side: const BorderSide(color: primaryColor)),
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding:
-                                const EdgeInsets.only(left: 24.0, right: 14),
-                            child: Text(
-                              "ADD",
-                              style: textTheme.labelLarge
-                                  ?.copyWith(fontSize: 16, color: primaryColor),
-                            ),
-                          ),
-                          const Align(
-                            alignment: Alignment.topRight,
-                            child: Icon(
-                              Icons.add,
-                              color: primaryColor,
-                              size: 16,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    child: AddButton(),
                   ),
                 ),
               ],

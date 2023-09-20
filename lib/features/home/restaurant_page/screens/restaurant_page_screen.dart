@@ -186,9 +186,10 @@ class _RestaurantPageScreenState extends ConsumerState<RestaurantPageScreen> {
                         ),
                       ),
                       filterWidget(
-                          label: "Egg",
-                          imageIcon:
-                              "https://cdn-icons-png.flaticon.com/128/9925/9925409.png"),
+                        label: "Egg",
+                        imageIcon:
+                            "https://cdn-icons-png.flaticon.com/128/9925/9925409.png",
+                      ),
                       filterWidget(
                         label: "Non-Veg",
                         iconWidget: const VegOrNonVegIconWidget(
@@ -196,15 +197,17 @@ class _RestaurantPageScreenState extends ConsumerState<RestaurantPageScreen> {
                         ),
                       ),
                       filterWidget(
-                          label: "Veg",
-                          imageIcon:
-                              "https://cdn-icons-png.flaticon.com/128/7601/7601227.png"),
+                        label: "Veg",
+                        imageIcon:
+                            "https://cdn-icons-png.flaticon.com/128/7601/7601227.png",
+                      ),
                     ],
                   ),
                 ),
               ),
             ),
-          )
+          ),
+          
         ],
       ),
     );
