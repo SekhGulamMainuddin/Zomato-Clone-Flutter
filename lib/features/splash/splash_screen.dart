@@ -24,6 +24,15 @@ class _SplashScreenState extends State<SplashScreen>
     offset = Tween<Offset>(
             begin: const Offset(0.0, 10.0), end: const Offset(0.0, 0.0))
         .animate(controller);
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Future.delayed(const Duration(milliseconds: 750), () {
+        controller.forward();
+        Future.delayed(const Duration(seconds: 2), () {
+          Navigator.pushNamedAndRemoveUntil(
+              context, LoginScreen.routeName, (route) => false);
+        });
+      });
+    });
   }
 
   @override
@@ -35,13 +44,6 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    Future.delayed(const Duration(milliseconds: 750), () {
-      controller.forward();
-      Future.delayed(const Duration(seconds: 2), () {
-        Navigator.pushNamedAndRemoveUntil(
-            context, LoginScreen.routeName, (route) => false);
-      });
-    });
     return Scaffold(
       backgroundColor: primaryColor,
       body: Stack(

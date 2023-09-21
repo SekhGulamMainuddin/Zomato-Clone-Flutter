@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.sekhgmainuddin.zomato_clone">
     <queries>
         <provider android:authorities="com.facebook.katana.provider.PlatformProvider" />
@@ -8,7 +9,8 @@
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:label="zomato_clone">
+        android:label="zomato_clone"
+        tools:replace="android:label">
 
         <activity
             android:name=".MainActivity"

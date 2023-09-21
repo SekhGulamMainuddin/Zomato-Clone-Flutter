@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/features/loginandsignup/controller/login_signup_controller.dart';
 import 'package:zomato_clone/features/home/profile/widgets/profile_header_widget.dart';
-import 'package:zomato_clone/routes/navigation.dart';
+import 'package:zomato_clone/navigation/navigation.dart';
 
 class ProfileScreen extends ConsumerStatefulWidget {
   static const routeName = "/profile-screen";

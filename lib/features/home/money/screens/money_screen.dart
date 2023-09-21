@@ -6,7 +6,7 @@ import 'package:styled_text/widgets/styled_text.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/features/home/money/widgets/gift_banner_widget.dart';
 import 'package:zomato_clone/features/home/profile/screens/profile_screen.dart';
-import 'package:zomato_clone/routes/navigation.dart';
+import 'package:zomato_clone/navigation/navigation.dart';
 
 class MoneyScreen extends ConsumerStatefulWidget {
   const MoneyScreen({super.key});

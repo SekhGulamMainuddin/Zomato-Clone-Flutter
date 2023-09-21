@@ -12,7 +12,7 @@ import 'package:zomato_clone/common/models/pair.dart';
 import 'package:zomato_clone/features/home/restaurant_page/screens/restaurant_page_screen.dart';
 import 'package:zomato_clone/features/home/restaurants_and_dishes/restaurants_and_dishes_screen.dart';
 import 'package:zomato_clone/features/home/restaurants_and_dishes/restaurants_and_dishes_screen.dart';
-import 'package:zomato_clone/routes/navigation.dart';
+import 'package:zomato_clone/navigation/navigation.dart';
 
 class DeliveryScreen extends ConsumerStatefulWidget {
   const DeliveryScreen({Key? key}) : super(key: key);

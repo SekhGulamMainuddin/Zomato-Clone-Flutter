@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/features/home/home/screens/home_screen.dart';
 import 'package:zomato_clone/features/home/profile/screens/profile_screen.dart';
-import 'package:zomato_clone/routes/navigation.dart';
+import 'package:zomato_clone/navigation/navigation.dart';
 
 class MainHomeScreen extends ConsumerStatefulWidget {
   static const routeName = "/main-home-screen";
