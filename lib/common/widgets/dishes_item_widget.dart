@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/common/utils/utils.dart';
 import 'package:zomato_clone/common/widgets/add_button.dart';
+import 'package:zomato_clone/common/widgets/bordered_rating_widget.dart';
 import 'package:zomato_clone/common/widgets/star_rating.dart';
 import 'package:zomato_clone/common/widgets/veg_or_non_veg_icon_widget.dart';
 
@@ -61,18 +62,11 @@ class DishesItemWidget extends StatelessWidget {
             ),
             Row(
               children: [
-                Container(
-                  padding: const EdgeInsets.all(3),
-                  decoration: BoxDecoration(
-                      color: yellowColor.withOpacity(0.05),
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: yellowColor.withOpacity(0.3))),
-                  child: const StarRating(
+                const BorderedRatingWidget(
                     color: yellowColor,
                     rating: 2.75,
                     size: 16,
                   ),
-                ),
                 const SizedBox(
                   width: 10,
                 ),

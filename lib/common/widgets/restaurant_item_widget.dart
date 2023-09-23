@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/common/models/pair.dart';
+import 'package:zomato_clone/common/widgets/custom_dashed_divider.dart';
 import 'package:zomato_clone/common/widgets/delivery_time_and_distance_widget.dart';
 import 'package:zomato_clone/common/widgets/discount_widget.dart';
 import 'package:zomato_clone/common/widgets/restaurant_name_and_rating_widget.dart';
@@ -36,7 +37,7 @@ class RestaurantItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return GestureDetector(
-      onTap: onClick(restaurantName),
+      onTap: () => onClick(restaurantName),
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 15).copyWith(bottom: 20),
         elevation: 5,
@@ -133,17 +134,7 @@ class RestaurantItemWidget extends StatelessWidget {
                     ),
                     DeliveryTimeAndDistanceWidget(
                         deliveryTime: deliveryTime, distance: distance),
-                    Row(
-                      children: List.generate(
-                        1100 ~/ 10,
-                        (index) => Expanded(
-                          child: Container(
-                            color: index % 2 == 0 ? Colors.transparent : midGrey,
-                            height: 2,
-                          ),
-                        ),
-                      ),
-                    ),
+                    const CustomDashedDivider(),
                     DiscountWidget(discount: discount),
                   ],
                 ),

@@ -23,16 +23,16 @@ class VegOrNonVegIconWidget extends StatelessWidget {
           border:
               Border.all(color: isVeg ? greenColor : deepChestnut, width: 1.5)),
       child: isVeg
-          ? const Icon(
+          ? Icon(
               Icons.circle,
               color: greenColor,
-              size: 12,
+              size: 0.6 * size,
             )
           : Image.asset(
               "assets/images/non_veg_icon.png",
               color: deepChestnut,
-              height: 12,
-              width: 12,
+              height: 0.6 * size,
+              width: 0.6 * size,
             ),
     );
   }

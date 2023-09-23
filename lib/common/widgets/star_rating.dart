@@ -9,6 +9,7 @@ class StarRating extends StatefulWidget {
   final Color color;
   final double size;
 
+
   const StarRating({
     super.key,
     this.starCount = 5,

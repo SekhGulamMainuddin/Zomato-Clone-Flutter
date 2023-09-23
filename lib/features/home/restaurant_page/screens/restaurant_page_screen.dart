@@ -6,6 +6,7 @@ import 'package:zomato_clone/common/utils/utils.dart';
 import 'package:zomato_clone/common/widgets/delivery_time_and_distance_widget.dart';
 import 'package:zomato_clone/common/widgets/rating_widget.dart';
 import 'package:zomato_clone/common/widgets/veg_or_non_veg_icon_widget.dart';
+import 'package:zomato_clone/features/home/restaurant_page/widgets/expandable_menu_widget.dart';
 import 'package:zomato_clone/features/home/restaurant_page/widgets/offer_widget.dart';
 
 class RestaurantPageScreen extends ConsumerStatefulWidget {
@@ -30,6 +31,7 @@ class _RestaurantPageScreenState extends ConsumerState<RestaurantPageScreen> {
           SliverAppBar(
             elevation: 0,
             backgroundColor: white,
+            pinned: true,
             automaticallyImplyLeading: false,
             leading: actionMenuItem(
               onClick: () {},
@@ -169,45 +171,50 @@ class _RestaurantPageScreenState extends ConsumerState<RestaurantPageScreen> {
           SliverAppBar(
             backgroundColor: ghostWhite,
             pinned: true,
+            automaticallyImplyLeading: false,
             titleSpacing: 0,
-            flexibleSpace: Flexible(
-              child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: SizedBox(
-                  height: 40,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    children: [
-                      filterWidget(
-                        label: "Veg",
-                        iconWidget: const VegOrNonVegIconWidget(
-                          isVeg: true,
-                        ),
+            toolbarHeight: 31,
+            flexibleSpace: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16),
+              child: SizedBox(
+                height: 40,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  children: [
+                    filterWidget(
+                      label: "Veg",
+                      iconWidget: const VegOrNonVegIconWidget(
+                        isVeg: true,
                       ),
-                      filterWidget(
-                        label: "Egg",
-                        imageIcon:
-                            "https://cdn-icons-png.flaticon.com/128/9925/9925409.png",
+                    ),
+                    filterWidget(
+                      label: "Egg",
+                      imageIcon:
+                          "https://cdn-icons-png.flaticon.com/128/9925/9925409.png",
+                    ),
+                    filterWidget(
+                      label: "Non-Veg",
+                      iconWidget: const VegOrNonVegIconWidget(
+                        isVeg: false,
                       ),
-                      filterWidget(
-                        label: "Non-Veg",
-                        iconWidget: const VegOrNonVegIconWidget(
-                          isVeg: false,
-                        ),
-                      ),
-                      filterWidget(
-                        label: "Veg",
-                        imageIcon:
-                            "https://cdn-icons-png.flaticon.com/128/7601/7601227.png",
-                      ),
-                    ],
-                  ),
+                    ),
+                    filterWidget(
+                      label: "Veg",
+                      imageIcon:
+                          "https://cdn-icons-png.flaticon.com/128/7601/7601227.png",
+                    ),
+                  ],
                 ),
               ),
             ),
           ),
-          
+          SliverList.builder(
+            itemCount: 100,
+            itemBuilder: (context, index) {
+              return const ExpandableMenuWidget();
+            },
+          ),
         ],
       ),
     );

@@ -16,16 +16,13 @@ class AddButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
           ),
           side: const BorderSide(color: primaryColor)),
-      child: Row(
+      child: Stack(
+        alignment: Alignment.center,
         children: [
-          Padding(
-            padding:
-            const EdgeInsets.only(left: 24.0, right: 14),
-            child: Text(
-              "ADD",
-              style: textTheme.labelLarge
-                  ?.copyWith(fontSize: 16, color: primaryColor),
-            ),
+          Text(
+            "ADD",
+            style: textTheme.labelLarge
+                ?.copyWith(fontSize: 16, color: primaryColor),
           ),
           const Align(
             alignment: Alignment.topRight,

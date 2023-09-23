@@ -6,6 +6,7 @@ import 'package:zomato_clone/features/home/home/screens/home_screen.dart';
 import 'package:zomato_clone/features/home/main_home/screens/main_home_screen.dart';
 import 'package:zomato_clone/features/home/restaurant_page/screens/restaurant_page_screen.dart';
 import 'package:zomato_clone/features/loginandsignup/screens/login_screen.dart';
+import 'package:zomato_clone/features/splash/splash_screen.dart';
 import 'package:zomato_clone/routes/main_router.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/firebase_options.dart';
