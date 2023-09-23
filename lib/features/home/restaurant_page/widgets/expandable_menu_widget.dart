@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/features/home/restaurant_page/widgets/food_item_widget.dart';
+import 'package:zomato_clone/features/home/restaurant_page/widgets/restaurant_menu_items_widget.dart';
 
 class ExpandableMenuWidget extends StatefulWidget {
   const ExpandableMenuWidget({Key? key}) : super(key: key);
@@ -11,27 +12,9 @@ class ExpandableMenuWidget extends StatefulWidget {
 
 class _ExpandableMenuWidgetState extends State<ExpandableMenuWidget> {
   var expanded = false;
-  Widget? listWidget;
 
   @override
   Widget build(BuildContext context) {
-    listWidget ??= ListView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: 20,
-      itemBuilder: (context, index) {
-        return const FoodItemWidget(
-          imageUrl:
-              "https://fforflavour.com/wp-content/uploads/2018/08/IMG_5518.jpg",
-          name: "Butter Paneer",
-          rating: 4.5,
-          totalRatings: 11107,
-          price: 250,
-          isVeg: true,
-          isCustomisable: true,
-        );
-      },
-    );
     final textTheme = Theme.of(context).textTheme;
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 20),
@@ -81,7 +64,8 @@ class _ExpandableMenuWidgetState extends State<ExpandableMenuWidget> {
               ),
             ),
           ),
-          if (expanded) listWidget!,
+          if (expanded)
+            const RestaurantMenuItemsWidget(),
         ],
       ),
     );
