@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zomato_clone/features/home/delivery_location/screens/choose_delivery_location_screen.dart';
 import 'package:zomato_clone/features/home/restaurant_page/screens/restaurant_page_screen.dart';
 import 'package:zomato_clone/features/loginandsignup/screens/login_screen.dart';
 import 'package:zomato_clone/features/loginandsignup/screens/verify_otp_screen.dart';
@@ -30,6 +31,9 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       final resendToken = arguments["resendToken"] as int?;
       final phoneNumber = arguments["phoneNumber"] as String;
       page = VerifyOTPScreen(verificationId, resendToken, phoneNumber);
+      break;
+    case ChooseDeliveryLocationScreen.routeName:
+      page = const ChooseDeliveryLocationScreen();
       break;
     default:
       page = const Scaffold(

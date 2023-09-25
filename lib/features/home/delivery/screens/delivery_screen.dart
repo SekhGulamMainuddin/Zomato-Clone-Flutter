@@ -6,11 +6,11 @@ import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/common/widgets/add_filter_widget.dart';
 import 'package:zomato_clone/common/widgets/circular_image.dart';
 import 'package:zomato_clone/common/widgets/search_bar_widget.dart';
+import 'package:zomato_clone/features/home/delivery_location/screens/choose_delivery_location_screen.dart';
 import 'package:zomato_clone/features/home/home/widgets/recipe_item_widget.dart';
 import 'package:zomato_clone/common/widgets/restaurant_item_widget.dart';
 import 'package:zomato_clone/common/models/pair.dart';
 import 'package:zomato_clone/features/home/restaurant_page/screens/restaurant_page_screen.dart';
-import 'package:zomato_clone/features/home/restaurants_and_dishes/restaurants_and_dishes_screen.dart';
 import 'package:zomato_clone/features/home/restaurants_and_dishes/restaurants_and_dishes_screen.dart';
 import 'package:zomato_clone/navigation/navigation.dart';
 
@@ -55,6 +55,9 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, ChooseDeliveryLocationScreen.routeName);
+                          },
                           child: RichText(
                             text: TextSpan(
                               children: [

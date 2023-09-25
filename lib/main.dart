@@ -2,11 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:zomato_clone/features/home/home/screens/home_screen.dart';
+import 'package:zomato_clone/common/di/di_module.dart' as di;
 import 'package:zomato_clone/features/home/main_home/screens/main_home_screen.dart';
-import 'package:zomato_clone/features/home/restaurant_page/screens/restaurant_page_screen.dart';
-import 'package:zomato_clone/features/loginandsignup/screens/login_screen.dart';
-import 'package:zomato_clone/features/splash/splash_screen.dart';
 import 'package:zomato_clone/routes/main_router.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/firebase_options.dart';
@@ -14,6 +11,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

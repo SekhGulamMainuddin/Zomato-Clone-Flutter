@@ -8,6 +8,7 @@ class SearchBarWidget extends ConsumerWidget {
   final Color hintColor;
   final TextEditingController? controller;
   final Pair<IconData, VoidCallback> leading;
+  final bool showTrailing;
   final VoidCallback onClick;
   final bool isChangingHint;
   final String? hintType;
@@ -21,6 +22,7 @@ class SearchBarWidget extends ConsumerWidget {
     required this.onClick,
     this.isChangingHint = false,
     this.hintType,
+    this.showTrailing = true,
   }) : super(key: key);
 
   @override
@@ -31,51 +33,52 @@ class SearchBarWidget extends ConsumerWidget {
       fontSize: 17,
     );
     return Container(
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(15)),
-          border: Border.fromBorderSide(
-            BorderSide(color: lightGrey.withOpacity(0.8), width: 1),
-          ),
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(15)),
+        border: Border.fromBorderSide(
+          BorderSide(color: lightGrey.withOpacity(0.8), width: 1),
         ),
-        margin: const EdgeInsets.only(top: 15, bottom: 10),
-        child: Row(
-          children: [
-            IconButton(
-              onPressed: leading.second,
-              icon: Icon(
-                leading.first,
-                color: primaryColor,
-              ),
+      ),
+      margin: const EdgeInsets.only(top: 15, bottom: 10),
+      child: Row(
+        children: [
+          IconButton(
+            onPressed: leading.second,
+            icon: Icon(
+              leading.first,
+              color: primaryColor,
             ),
-            Expanded(
-              child: controller == null
-                  ? GestureDetector(
-                      onTap: onClick,
-                      child: Text(
-                        hint!,
-                        style: hintStyle,
-                      ),
-                    )
-                  : TextField(
-                      controller: controller,
-                      decoration: InputDecoration(
-                        hintText: hint,
-                        hintStyle: hintStyle,
-                        border: InputBorder.none,
-                      ),
-                      style: textTheme.bodyLarge?.copyWith(
-                        color: black,
-                        fontSize: 17,
-                      ),
-                      onTap: onClick,
+          ),
+          Expanded(
+            child: controller == null
+                ? GestureDetector(
+                    onTap: onClick,
+                    child: Text(
+                      hint!,
+                      style: hintStyle,
                     ),
-            ),
-            Container(
-              width: 1,
-              height: 30,
-              padding: const EdgeInsets.symmetric(vertical: 2),
-              color: lightGrey,
-            ),
+                  )
+                : TextField(
+                    controller: controller,
+                    decoration: InputDecoration(
+                      hintText: hint,
+                      hintStyle: hintStyle,
+                      border: InputBorder.none,
+                    ),
+                    style: textTheme.bodyLarge?.copyWith(
+                      color: black,
+                      fontSize: 17,
+                    ),
+                    onTap: onClick,
+                  ),
+          ),
+          Container(
+            width: 1,
+            height: 30,
+            padding: const EdgeInsets.symmetric(vertical: 2),
+            color: lightGrey,
+          ),
+          if (showTrailing)
             IconButton(
               onPressed: () {},
               icon: const Icon(
@@ -83,8 +86,8 @@ class SearchBarWidget extends ConsumerWidget {
                 color: primaryColor,
               ),
             ),
-          ],
-        ),
-      );
+        ],
+      ),
+    );
   }
 }
