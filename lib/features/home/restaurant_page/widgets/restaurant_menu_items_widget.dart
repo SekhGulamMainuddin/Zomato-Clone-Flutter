@@ -9,7 +9,7 @@ class RestaurantMenuItemsWidget extends StatelessWidget {
     return ListView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: 100,
+      itemCount: 10,
       itemBuilder: (context, index) {
         return const FoodItemWidget(
           imageUrl:

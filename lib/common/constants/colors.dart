@@ -38,6 +38,7 @@ const jackoBean = Color(0xff413b2d);
 const deepChampagne = Color(0xfff5d6a7);
 const spanishBistre = Color(0xff8b6e31);
 const gamboge = Color(0xffdd9d08);
+const bigFootFeet = Color(0xffe58753);
 const culturedColor = Color(0xfff3f4f8);
 const manatee = Color(0xff9296a5);
 const honeydew = Color(0xffeaffee);
