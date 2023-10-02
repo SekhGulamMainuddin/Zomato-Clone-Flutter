@@ -80,7 +80,7 @@ class SearchBarWidget extends ConsumerWidget {
           ),
           if (showTrailing)
             IconButton(
-              onPressed: () {},
+              onPressed: onClick,
               icon: const Icon(
                 Icons.mic_none,
                 color: primaryColor,

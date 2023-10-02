@@ -31,7 +31,7 @@ class _ChooseDeliveryLocationScreenState
                 children: [
                   IconButton(
                     onPressed: () {
-                      // Navigator.pop(context);
+                      Navigator.pop(context);
                     },
                     splashRadius: 20,
                     icon: const Icon(

@@ -64,20 +64,34 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   }
 
   void phoneSignInOrSignUp() {
-    if (phoneEditingController.text.isNotEmpty) {
-      showLoaderDialog(context);
-      ref.read(loginSignUpControllerProvider).signInOrSignUpWithPhone(
-          phoneEditingController.text, (verificationId, resendToken) {
-        Navigator.pop(context);
-        final args = <String, dynamic>{
-          "verificationId": verificationId,
-          "resendToken": resendToken,
-          "phoneNumber": phoneEditingController.text
-        };
-        Navigator.pushNamed(context, VerifyOTPScreen.routeName,
-            arguments: args);
-      });
-    }
+    //just to test
+    showLoaderDialog(context);
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.pop(context);
+      final args = <String, dynamic>{
+        "verificationId": "verificationId",
+        "resendToken": 5,
+        "phoneNumber": phoneEditingController.text
+      };
+      Navigator.pushNamed(context, VerifyOTPScreen.routeName,
+          arguments: args);}
+    );
+
+
+    // if (phoneEditingController.text.isNotEmpty) {
+    //   showLoaderDialog(context);
+    //   ref.read(loginSignUpControllerProvider).signInOrSignUpWithPhone(
+    //       "+91${phoneEditingController.text}", (verificationId, resendToken) {
+    //     Navigator.pop(context);
+    //     final args = <String, dynamic>{
+    //       "verificationId": verificationId,
+    //       "resendToken": resendToken,
+    //       "phoneNumber": phoneEditingController.text
+    //     };
+    //     Navigator.pushNamed(context, VerifyOTPScreen.routeName,
+    //         arguments: args);
+    //   });
+    // }
   }
 
   @override

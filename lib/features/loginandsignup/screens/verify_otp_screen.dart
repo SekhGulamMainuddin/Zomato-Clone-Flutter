@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pinput/pinput.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/common/utils/utils.dart';
+import 'package:zomato_clone/features/home/main_home/screens/main_home_screen.dart';
 import 'package:zomato_clone/features/loginandsignup/controller/login_signup_controller.dart';
 
 class VerifyOTPScreen extends ConsumerStatefulWidget {
@@ -43,9 +44,14 @@ class _VerifyOTPScreenState extends ConsumerState<VerifyOTPScreen> {
           style: textTheme.labelSmall?.copyWith(fontSize: 18),
         ),
         centerTitle: false,
-        leading: const Icon(
-          Icons.arrow_back_sharp,
-          color: black,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back_sharp,
+            color: black,
+          ),
         ),
         backgroundColor: white,
         elevation: 0,
@@ -80,20 +86,7 @@ class _VerifyOTPScreenState extends ConsumerState<VerifyOTPScreen> {
                 length: 6,
                 pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
                 showCursor: true,
-                onCompleted: (pin) {
-                  showLoaderDialog(context);
-                  ref
-                      .read(loginSignUpControllerProvider)
-                      .verifyOTP(widget.verificationId, pin)
-                      .then((value) {
-                    if (value) {
-                      showSnackBar(context, "Success");
-                    } else {
-                      showSnackBar(context, "Verification Failed Wrong OTP");
-                    }
-                    Navigator.pop(context);
-                  });
-                },
+                onCompleted: verifyPin,
               ),
             ),
             const SizedBox(
@@ -123,9 +116,8 @@ class _VerifyOTPScreenState extends ConsumerState<VerifyOTPScreen> {
                   child: Text(
                     btnText,
                     style: textTheme.labelSmall?.copyWith(
-                      color: snapshot.data == 0 ? primaryColor : midGrey,
-                      fontSize: 16
-                    ),
+                        color: snapshot.data == 0 ? primaryColor : midGrey,
+                        fontSize: 16),
                   ),
                 );
               },
@@ -141,5 +133,28 @@ class _VerifyOTPScreenState extends ConsumerState<VerifyOTPScreen> {
         ),
       ),
     );
+  }
+
+  void verifyPin(String pin) {
+    showLoaderDialog(context);
+    Future.delayed(
+      const Duration(seconds: 3),
+      () {
+        Navigator.pop(context);
+        showSnackBar(context, "Success");
+        Navigator.pushNamed(context, MainHomeScreen.routeName);
+      },
+    );
+    // ref
+    //     .read(loginSignUpControllerProvider)
+    //     .verifyOTP(widget.verificationId, pin)
+    //     .then((value) {
+    //   if (value) {
+    //     showSnackBar(context, "Success");
+    //   } else {
+    //     showSnackBar(context, "Verification Failed Wrong OTP");
+    //   }
+    //   Navigator.pop(context);
+    // });
   }
 }
