@@ -9,7 +9,7 @@
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:label="zomato_clone"
+        android:label="Zomato Clone"
         tools:replace="android:label">
 
         <activity

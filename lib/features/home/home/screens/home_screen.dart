@@ -95,7 +95,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with AutomaticKeepAlive
           child: Container(
             color: white,
             width: double.infinity,
-            height: 60,
+            height: 56,
             margin: const EdgeInsets.only(bottom: 2),
             alignment: Alignment.topCenter,
             child: Column(
@@ -116,7 +116,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with AutomaticKeepAlive
                                 value: value,
                                 minHeight: 3.5,
                                 valueColor:
-                                    const AlwaysStoppedAnimation(primaryColor),
+                                    const AlwaysStoppedAnimation(primaryColorVariant),
                                 backgroundColor: white,
                               ),
                             );
@@ -133,8 +133,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with AutomaticKeepAlive
                   children: [
                     Image.asset(
                       imageIcon,
-                      height: 22,
-                      width: 22,
+                      height: 20,
+                      width: 20,
                       color: isSelected ? primaryColor : grey,
                     ),
                     const SizedBox(
@@ -142,7 +142,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with AutomaticKeepAlive
                     ),
                     Text(
                       label,
-                      style: textTheme?.titleMedium,
+                      style: textTheme?.titleSmall,
                     ),
                   ],
                 ),

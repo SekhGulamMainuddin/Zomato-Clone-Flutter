@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/common/di/di_module.dart' as di;
@@ -65,6 +66,13 @@ class MyApp extends StatelessWidget {
       ],
       theme: ThemeData(
         fontFamily: "custom_font",
+        // appBarTheme: const AppBarTheme(
+        //   systemOverlayStyle: SystemUiOverlayStyle(
+        //       systemNavigationBarColor: navigationBarColor,
+        //       systemNavigationBarDividerColor: white,
+        //       systemNavigationBarContrastEnforced: true,
+        //       systemNavigationBarIconBrightness: Brightness.light),
+        // ),
         textTheme: TextTheme(
           displayLarge: displayTextStyle,
           displayMedium: displayTextStyle.copyWith(

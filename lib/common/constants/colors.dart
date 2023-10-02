@@ -14,6 +14,7 @@ const MaterialColor primarySwatch = MaterialColor(0xFFE13742, <int, Color>{
   800: Color(0xFFD5232B),
   900: Color(0xFFCD161D),
 });
+const navigationBarColor = Color(0xffedf1f3);
 const white = Colors.white;
 const ghostWhite = Color(0xfff5f6fb);
 const lightPink = Color(0xFFfbbac1);
