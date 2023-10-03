@@ -4,6 +4,7 @@ import 'package:zomato_clone/common/models/pair.dart';
 import 'package:zomato_clone/common/widgets/best_seller_widget.dart';
 import 'package:zomato_clone/common/widgets/bordered_rating_widget.dart';
 import 'package:zomato_clone/common/widgets/custom_image_widget.dart';
+import 'package:zomato_clone/common/widgets/item_counter_widget.dart';
 import 'package:zomato_clone/common/widgets/veg_or_non_veg_icon_widget.dart';
 
 class BuyFoodItemBottomSheetScreen extends StatefulWidget {
@@ -33,7 +34,9 @@ class _BuyFoodItemBottomSheetScreenState
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const SizedBox(height: 50,),
+          const SizedBox(
+            height: 50,
+          ),
           MaterialButton(
             onPressed: () {
               Navigator.pop(context);
@@ -110,8 +113,8 @@ class _BuyFoodItemBottomSheetScreenState
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding:
-                                        const EdgeInsets.only(top: 2, bottom: 8),
+                                    padding: const EdgeInsets.only(
+                                        top: 2, bottom: 8),
                                     child: Text(
                                       "Hyderabadi Chicken Dum Biryani",
                                       style: textTheme.titleSmall
@@ -313,49 +316,12 @@ class _BuyFoodItemBottomSheetScreenState
               children: [
                 Flexible(
                   flex: 4,
-                  child: Container(
+                  child: ItemCounterWidget(
                     height: 50,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: primaryColorVariant,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Row(
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            setState(() {
-                              totalNumberCount--;
-                            });
-                          },
-                          icon: const Icon(
-                            Icons.horizontal_rule_rounded,
-                            color: primaryColorVariant,
-                          ),
-                        ),
-                        Expanded(
-                          child: Text(
-                            "$totalNumberCount",
-                            style: textTheme.labelMedium?.copyWith(
-                              fontSize: 18,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            setState(() {
-                              totalNumberCount++;
-                            });
-                          },
-                          icon: const Icon(
-                            Icons.add,
-                            color: primaryColorVariant,
-                          ),
-                        ),
-                      ],
-                    ),
+                    counter: (count) {
+                      totalNumberCount = count;
+                    },
+                    currentCounter: totalNumberCount,
                   ),
                 ),
                 Flexible(

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:zomato_clone/features/home/delivery_location/screens/choose_delivery_location_screen.dart';
 import 'package:zomato_clone/features/home/restaurant_page/screens/restaurant_page_screen.dart';
 import 'package:zomato_clone/features/home/search_screen/search_screen.dart';
-import 'package:zomato_clone/features/home/search_screen/search_screen.dart';
 import 'package:zomato_clone/features/loginandsignup/screens/login_screen.dart';
 import 'package:zomato_clone/features/loginandsignup/screens/verify_otp_screen.dart';
 import 'package:zomato_clone/features/home/main_home/screens/main_home_screen.dart';
+import 'package:zomato_clone/features/home/delivery_summary/screens/delivery_summary_screen.dart';
 import 'package:zomato_clone/features/home/profile/screens/activity_screen.dart';
 import 'package:zomato_clone/features/home/restaurants_and_dishes/restaurants_and_dishes_screen.dart';
 
@@ -26,6 +26,9 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       break;
     case RestaurantPageScreen.routeName:
       page = const RestaurantPageScreen();
+      break;
+    case DeliverySummaryScreen.routeName:
+      page = const DeliverySummaryScreen();
       break;
     case SearchScreen.routeName:
       page = const SearchScreen();

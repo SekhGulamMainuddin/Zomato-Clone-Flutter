@@ -26,7 +26,7 @@ class VegOrNonVegIconWidget extends StatelessWidget {
           ? Icon(
               Icons.circle,
               color: greenColor,
-              size: 0.6 * size,
+              size: 0.55 * size,
             )
           : Image.asset(
               "assets/images/non_veg_icon.png",

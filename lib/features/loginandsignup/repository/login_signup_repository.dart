@@ -87,6 +87,7 @@ class LoginSignUpRepository {
     try {
       final LoginResult loginResult = await _facebookAuth.login(permissions: ["email"]);
       final OAuthCredential facebookAuthCredential = FacebookAuthProvider.credential(loginResult.accessToken!.token);
+
       final userCredential= await _firebaseAuth.signInWithCredential(facebookAuthCredential);
       final user = userCredential.user;
       final userData = UserData(

@@ -5,6 +5,7 @@ import 'package:zomato_clone/common/models/pair.dart';
 import 'package:zomato_clone/common/utils/utils.dart';
 import 'package:zomato_clone/common/widgets/delivery_time_and_distance_widget.dart';
 import 'package:zomato_clone/common/widgets/rating_widget.dart';
+import 'package:zomato_clone/features/home/delivery_summary/screens/delivery_summary_screen.dart';
 import 'package:zomato_clone/features/home/restaurant_page/widgets/expandable_menu_widget.dart';
 import 'package:zomato_clone/features/home/restaurant_page/widgets/filter_list_widget.dart';
 import 'package:zomato_clone/features/home/restaurant_page/widgets/offer_widget.dart';
@@ -39,7 +40,6 @@ class _RestaurantPageScreenState extends ConsumerState<RestaurantPageScreen>
   }
 
   _toggleItemAddedContainer() {
-    count++;
     if (_animation.status != AnimationStatus.completed) {
       _controller.forward();
     } else {
@@ -47,12 +47,11 @@ class _RestaurantPageScreenState extends ConsumerState<RestaurantPageScreen>
     }
   }
 
-  var count = 1;
 
   @override
   Widget build(BuildContext context) {
     textTheme = Theme.of(context).textTheme;
-    // _toggleItemAddedContainer();
+    _toggleItemAddedContainer();
     return Scaffold(
       backgroundColor: ghostWhite,
       body: Column(
@@ -298,7 +297,9 @@ class _RestaurantPageScreenState extends ConsumerState<RestaurantPageScreen>
                       ),
                       Expanded(
                         child: OutlinedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, DeliverySummaryScreen.routeName);
+                          },
                           style: OutlinedButton.styleFrom(
                             backgroundColor: primaryColorVariant,
                             padding: const EdgeInsets.all(15),

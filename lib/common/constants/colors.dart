@@ -48,27 +48,26 @@ const deepChestnut = Color(0xffc34c40);
 const goldMemberSizeGradient = LinearGradient(
   begin: Alignment.centerLeft,
   end: Alignment.centerRight,
-  colors: [
-  spanishBistre,
-  deepChampagne,
-  spanishBistre
-],);
+  colors: [spanishBistre, deepChampagne, spanishBistre],
+);
 const maastrichtBlue = Color(0xff051429);
 const fadedEdge1 = LinearGradient(
   begin: Alignment.centerLeft,
   end: Alignment.centerRight,
-  colors: [
-    maastrichtBlue,
-    grey,
-    midLightGrey
-  ],
+  colors: [maastrichtBlue, grey, midLightGrey],
 );
 const fadedEdge2 = LinearGradient(
   begin: Alignment.centerLeft,
   end: Alignment.centerRight,
+  colors: [midLightGrey, grey, maastrichtBlue],
+);
+const azureishWhite = Color(0xffdce8ff);
+const brightGray = Color(0xffe5f3f2);
+const savedOnThisOrderBannerGradient = LinearGradient(
+  begin: Alignment.centerLeft,
+  end: Alignment.centerRight,
   colors: [
-    midLightGrey,
-    grey,
-    maastrichtBlue
+    azureishWhite,
+    brightGray
   ],
 );
