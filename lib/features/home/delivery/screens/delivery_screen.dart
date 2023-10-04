@@ -47,7 +47,7 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                 children: [
                   const Icon(
                     Icons.location_on_rounded,
-                    color: primaryColor,
+                    color: primaryColorVariant,
                     size: 32,
                   ),
                   Padding(

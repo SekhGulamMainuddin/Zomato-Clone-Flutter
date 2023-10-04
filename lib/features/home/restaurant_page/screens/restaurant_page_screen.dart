@@ -10,6 +10,8 @@ import 'package:zomato_clone/features/home/restaurant_page/widgets/expandable_me
 import 'package:zomato_clone/features/home/restaurant_page/widgets/filter_list_widget.dart';
 import 'package:zomato_clone/features/home/restaurant_page/widgets/offer_widget.dart';
 
+final itemBarController = StateProvider((ref) => 0);
+
 class RestaurantPageScreen extends ConsumerStatefulWidget {
   static const routeName = "/restaurant-page-screen";
 
@@ -51,7 +53,9 @@ class _RestaurantPageScreenState extends ConsumerState<RestaurantPageScreen>
   @override
   Widget build(BuildContext context) {
     textTheme = Theme.of(context).textTheme;
-    _toggleItemAddedContainer();
+    if(ref.watch(itemBarController)>0){
+      _toggleItemAddedContainer();
+    };
     return Scaffold(
       backgroundColor: ghostWhite,
       body: Column(

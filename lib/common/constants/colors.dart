@@ -71,3 +71,4 @@ const savedOnThisOrderBannerGradient = LinearGradient(
     brightGray
   ],
 );
+const mapMarkerSurroundColor = Color(0xff96b0e1);

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/common/widgets/add_button.dart';
 import 'package:zomato_clone/common/widgets/best_seller_widget.dart';
@@ -7,8 +8,9 @@ import 'package:zomato_clone/common/widgets/custom_dashed_divider.dart';
 import 'package:zomato_clone/common/widgets/veg_or_non_veg_icon_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:zomato_clone/features/home/restaurant_page/screens/buy_food_item_bottom_sheet_screen.dart';
+import 'package:zomato_clone/features/home/restaurant_page/screens/restaurant_page_screen.dart';
 
-class FoodItemWidget extends StatefulWidget {
+class FoodItemWidget extends ConsumerStatefulWidget {
   final String imageUrl;
   final String name;
   final double rating;
@@ -33,10 +35,10 @@ class FoodItemWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<FoodItemWidget> createState() => _FoodItemWidgetState();
+  ConsumerState<FoodItemWidget> createState() => _FoodItemWidgetState();
 }
 
-class _FoodItemWidgetState extends State<FoodItemWidget> {
+class _FoodItemWidgetState extends ConsumerState<FoodItemWidget> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
@@ -127,7 +129,11 @@ class _FoodItemWidgetState extends State<FoodItemWidget> {
                           SizedBox(
                             height: 40,
                             width: width * 0.28,
-                            child: const AddButton(),
+                            child: AddButton(
+                              onClick: () {
+                                ref.read(itemBarController.notifier).state += 1;
+                              },
+                            ),
                           ),
                         ],
                       ),

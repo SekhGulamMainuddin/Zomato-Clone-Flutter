@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 
 class AddButton extends StatelessWidget {
-  const AddButton({Key? key}) : super(key: key);
+  final VoidCallback? onClick;
+  const AddButton({Key? key, this.onClick}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return OutlinedButton(
-      onPressed: () {},
+      onPressed: onClick,
       style: OutlinedButton.styleFrom(
           backgroundColor: white,
           padding: const EdgeInsets.all(4),
