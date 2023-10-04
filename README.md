@@ -6,5 +6,6 @@
   Current Progress - Only UI part with static data.
   Later I will do the backend integration as well.
 
-https://github.com/SekhGulamMainuddin/Zomato-Clone/assets/73953395/02f5b572-d31b-45b7-9800-b6e2e8c0d047
+https://github.com/SekhGulamMainuddin/Zomato-Clone-Flutter/assets/73953395/95724a57-12a7-4b37-bf5d-ed76bad77927
+
 
