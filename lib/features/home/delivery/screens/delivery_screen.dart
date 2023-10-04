@@ -23,7 +23,7 @@ class DeliveryScreen extends ConsumerStatefulWidget {
 }
 
 class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
-  var location = "Cuttack";
+  var location = "Delhi";
   final searchController = TextEditingController();
 
   @override

@@ -116,7 +116,7 @@ class MyApp extends StatelessWidget {
         progressIndicatorTheme:
             const ProgressIndicatorThemeData(color: primaryColor),
       ),
-      home: const MainHomeScreen(),
+      home: const SplashScreen(),
       onGenerateRoute: generateRoute,
     );
   }

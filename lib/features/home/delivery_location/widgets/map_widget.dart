@@ -242,7 +242,6 @@ class _MapWidgetState extends State<MapWidget> with TickerProviderStateMixin {
     placemark = (await placemarkFromCoordinates(
         latLng!.latitude, latLng!.longitude))[0];
     mapController.move(latLng!, 10);
-    _toggleItemAddedContainer();
     setState(() {});
   }
 
@@ -262,6 +261,7 @@ class _MapWidgetState extends State<MapWidget> with TickerProviderStateMixin {
                 position.longitude,
               );
               areaFromLatLng();
+              _toggleItemAddedContainer();
             },
           );
         } else {
