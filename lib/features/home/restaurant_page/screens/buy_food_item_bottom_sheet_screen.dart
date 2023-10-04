@@ -3,6 +3,7 @@ import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/common/models/pair.dart';
 import 'package:zomato_clone/common/widgets/best_seller_widget.dart';
 import 'package:zomato_clone/common/widgets/bordered_rating_widget.dart';
+import 'package:zomato_clone/common/widgets/bottom_sheet_close_button.dart';
 import 'package:zomato_clone/common/widgets/custom_image_widget.dart';
 import 'package:zomato_clone/common/widgets/item_counter_widget.dart';
 import 'package:zomato_clone/common/widgets/veg_or_non_veg_icon_widget.dart';
@@ -37,21 +38,7 @@ class _BuyFoodItemBottomSheetScreenState
           const SizedBox(
             height: 50,
           ),
-          MaterialButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            shape: const CircleBorder(),
-            color: darkBlack,
-            child: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Icon(
-                Icons.close,
-                color: white,
-                size: 28,
-              ),
-            ),
-          ),
+          const BottomSheetCloseButton(),
           Container(
             width: double.infinity,
             decoration: const BoxDecoration(
