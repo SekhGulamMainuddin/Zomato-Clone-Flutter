@@ -95,7 +95,7 @@ class _MapWidgetState extends State<MapWidget> with TickerProviderStateMixin {
                     width: 140,
                     height: 140,
                     point: latLng ?? const LatLng(28.7041, 77.1025),
-                    builder: (context) => Padding(
+                    child: Padding(
                       padding: const EdgeInsets.only(top: 30),
                       child: CircleAvatar(
                         backgroundColor:

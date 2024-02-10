@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/common/di/di_module.dart' as di;
-import 'package:zomato_clone/features/home/main_home/screens/main_home_screen.dart';
 import 'package:zomato_clone/features/splash/splash_screen.dart';
 import 'package:zomato_clone/routes/main_router.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
