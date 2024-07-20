@@ -6,14 +6,14 @@ import 'package:zomato_clone/features/home/money/screens/money_screen.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   static const routeName = "/home-screen";
+
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   ConsumerState<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends ConsumerState<HomeScreen> with AutomaticKeepAliveClientMixin<HomeScreen>{
-
+class _HomeScreenState extends ConsumerState<HomeScreen> with AutomaticKeepAliveClientMixin<HomeScreen> {
   @override
   bool get wantKeepAlive => true;
 
@@ -38,16 +38,19 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with AutomaticKeepAlive
     textTheme = Theme.of(context).textTheme;
     screenWidth = MediaQuery.sizeOf(context).width * 0.35;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: screens[_currentPage],
       ),
       bottomNavigationBar: BottomAppBar(
+        padding: EdgeInsets.zero,
+        elevation: 0,
+        height: 58,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             bottomNavigationItem(
-              imageIcon:
-                  "assets/images/delivery_${_currentPage == 0 ? "selected_" : ""}icon.png",
+              imageIcon: "assets/images/delivery_${_currentPage == 0 ? "selected_" : ""}icon.png",
               label: "Delivery",
               isSelected: _currentPage == 0,
               onClick: () {
@@ -65,8 +68,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with AutomaticKeepAlive
               ),
             ),
             bottomNavigationItem(
-              imageIcon:
-                  "assets/images/wallet_${_currentPage == 1 ? "selected_" : ""}icon.png",
+              imageIcon: "assets/images/wallet_${_currentPage == 1 ? "selected_" : ""}icon.png",
               label: "Money",
               isSelected: _currentPage == 1,
               onClick: () {
@@ -115,8 +117,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with AutomaticKeepAlive
                               child: LinearProgressIndicator(
                                 value: value,
                                 minHeight: 3.5,
-                                valueColor:
-                                    const AlwaysStoppedAnimation(primaryColorVariant),
+                                valueColor: const AlwaysStoppedAnimation(primaryColorVariant),
                                 backgroundColor: white,
                               ),
                             );

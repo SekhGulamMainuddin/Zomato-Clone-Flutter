@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <string name="app_name">flutter_app</string>
+    <string name="title">Flutter Demo</string>
+    <string name="increment">Increment</string>
+    <string name="facebook_app_id">your_app_id</string>
+    <string name="facebook_client_token">your_client_token</string>
+    <string name="fb_login_protocol_scheme">fbYourAppId</string>
+</resources>

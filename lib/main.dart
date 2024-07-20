@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:zomato_clone/common/di/di_module.dart' as di;
 import 'package:zomato_clone/features/splash/splash_screen.dart';
 import 'package:zomato_clone/routes/main_router.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
@@ -12,7 +11,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await di.init();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -112,6 +110,18 @@ class MyApp extends StatelessWidget {
         primarySwatch: primarySwatch,
         scaffoldBackgroundColor: white,
         primaryColor: primaryColor,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: white,
+          surfaceTintColor: white,
+        ),
+        bottomAppBarTheme: const BottomAppBarTheme(
+          color: white,
+          surfaceTintColor: white,
+        ),
+        cardTheme: const CardTheme(
+          color: white,
+          surfaceTintColor: white,
+        ),
         progressIndicatorTheme:
             const ProgressIndicatorThemeData(color: primaryColor),
       ),

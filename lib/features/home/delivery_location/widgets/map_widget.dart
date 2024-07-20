@@ -98,8 +98,7 @@ class _MapWidgetState extends State<MapWidget> with TickerProviderStateMixin {
                     child: Padding(
                       padding: const EdgeInsets.only(top: 30),
                       child: CircleAvatar(
-                        backgroundColor:
-                            mapMarkerSurroundColor.withOpacity(0.6),
+                        backgroundColor: mapMarkerSurroundColor.withOpacity(0.6),
                         radius: 8,
                       ),
                     ),
@@ -159,12 +158,10 @@ class _MapWidgetState extends State<MapWidget> with TickerProviderStateMixin {
                   ),
                 ),
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
                   decoration: const BoxDecoration(
                     color: white,
-                    borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(20)),
+                    borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                   ),
                   child: Column(
                     children: [
@@ -172,8 +169,7 @@ class _MapWidgetState extends State<MapWidget> with TickerProviderStateMixin {
                         sizeFactor: _animation,
                         axis: Axis.vertical,
                         child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 5)
-                              .copyWith(bottom: 20),
+                          padding: const EdgeInsets.symmetric(horizontal: 5).copyWith(bottom: 20),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -189,8 +185,7 @@ class _MapWidgetState extends State<MapWidget> with TickerProviderStateMixin {
                                   children: [
                                     Text(
                                       placemark?.locality ?? "Unknown",
-                                      style: textTheme.titleSmall
-                                          ?.copyWith(fontSize: 20),
+                                      style: textTheme.titleSmall?.copyWith(fontSize: 20),
                                     ),
                                     Text(
                                       placemark?.country ?? "Unknown",
@@ -239,8 +234,7 @@ class _MapWidgetState extends State<MapWidget> with TickerProviderStateMixin {
   }
 
   void areaFromLatLng() async {
-    placemark = (await placemarkFromCoordinates(
-        latLng!.latitude, latLng!.longitude))[0];
+    placemark = (await placemarkFromCoordinates(latLng!.latitude, latLng!.longitude))[0];
     mapController.move(latLng!, 10);
     setState(() {});
   }
@@ -274,6 +268,7 @@ class _MapWidgetState extends State<MapWidget> with TickerProviderStateMixin {
   @override
   void dispose() {
     mapController.dispose();
+    timer.cancel();
     super.dispose();
   }
 }

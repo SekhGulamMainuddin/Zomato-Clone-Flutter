@@ -61,6 +61,8 @@ class _RestaurantsAndDishesScreenState
               ),
               Card(
                 elevation: 0.8,
+                color: white,
+                surfaceTintColor: white,
                 child: TabBar(
                   controller: controller,
                   indicatorWeight: 3.5,

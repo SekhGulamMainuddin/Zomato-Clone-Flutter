@@ -41,45 +41,46 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
           child: PreferredSize(
             preferredSize: const Size.fromHeight(55),
             child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
               child: Row(
                 children: [
-                  const Icon(
-                    Icons.location_on_rounded,
-                    color: primaryColorVariant,
-                    size: 32,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 4.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, ChooseDeliveryLocationScreen.routeName);
+                    },
+                    child: Row(
                       children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.pushNamed(context, ChooseDeliveryLocationScreen.routeName);
-                          },
-                          child: RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(
-                                    text: location,
-                                    style: textTheme.displaySmall),
-                                const WidgetSpan(
-                                  child: Icon(
-                                    Icons.keyboard_arrow_down_rounded,
-                                    color: black,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                        const Icon(
+                          Icons.location_on_rounded,
+                          color: primaryColorVariant,
+                          size: 32,
                         ),
-                        Text(
-                          "India",
-                          style: textTheme.labelSmall?.copyWith(
-                            color: grey,
-                            fontSize: 13,
+                        Padding(
+                          padding: const EdgeInsets.only(left: 4.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(text: location, style: textTheme.displaySmall),
+                                    const WidgetSpan(
+                                      child: Icon(
+                                        Icons.keyboard_arrow_down_rounded,
+                                        color: black,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Text(
+                                "India",
+                                style: textTheme.labelSmall?.copyWith(
+                                  color: grey,
+                                  fontSize: 13,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -93,8 +94,7 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                     child: Container(
                       height: 30,
                       width: 30,
-                      padding: const EdgeInsets.symmetric(vertical: 5)
-                          .copyWith(right: 2, left: 1),
+                      padding: const EdgeInsets.symmetric(vertical: 5).copyWith(right: 2, left: 1),
                       decoration: const BoxDecoration(
                           color: transparent,
                           border: Border.fromBorderSide(
@@ -117,8 +117,7 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                       ref.watch(homeNavigation.notifier).state = 1;
                     },
                     child: const CircularImage(
-                      imageLink:
-                          "https://cdn.pixabay.com/photo/2018/02/08/22/27/flower-3140492_1280.jpg",
+                      imageLink: "https://cdn.pixabay.com/photo/2018/02/08/22/27/flower-3140492_1280.jpg",
                       radius: 19,
                     ),
                   ),
@@ -149,16 +148,14 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
           delegate: SliverChildListDelegate(
             [
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                 child: Column(
                   children: [
                     const SizedBox(
                       height: 10,
                     ),
                     Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15)),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
                       height: 140,
                       width: double.infinity,
                       child: const Image(
@@ -176,11 +173,9 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                       height: 110,
                       padding: const EdgeInsets.all(15).copyWith(right: 0),
                       decoration: BoxDecoration(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(15)),
+                        borderRadius: const BorderRadius.all(Radius.circular(15)),
                         border: Border.fromBorderSide(
-                          BorderSide(
-                              color: lightGrey.withOpacity(0.8), width: 1),
+                          BorderSide(color: lightGrey.withOpacity(0.8), width: 1),
                         ),
                       ),
                       child: Row(
@@ -234,8 +229,7 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                             ),
                           ),
                           Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 8.0),
+                            padding: const EdgeInsets.symmetric(horizontal: 8.0),
                             child: Text(
                               "WHAT'S ON YOUR MIND?",
                               style: textTheme.bodyLarge?.copyWith(
@@ -255,7 +249,7 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                       ),
                     ),
                     Container(
-                      height: 225,
+                      height: 235,
                       padding: const EdgeInsets.symmetric(vertical: 20),
                       child: ListView.builder(
                         padding: const EdgeInsets.only(right: 15),
@@ -305,8 +299,7 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0)
-                              .copyWith(bottom: 10),
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0).copyWith(bottom: 10),
                           child: Text(
                             "ALL RESTAURANTS",
                             style: textTheme.bodyLarge?.copyWith(
@@ -350,8 +343,7 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                 AddFilterWidget(tag: "Rating 4.0+", onClick: () {}),
                 AddFilterWidget(tag: "Pure Veg", onClick: () {}),
                 AddFilterWidget(tag: "New Arrivals", onClick: () {}),
-                AddFilterWidget(
-                    tag: "Cuisines", hasMultiOption: true, onClick: () {})
+                AddFilterWidget(tag: "Cuisines", hasMultiOption: true, onClick: () {})
               ],
             ),
           ),
@@ -390,18 +382,14 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                           : "https://recipesblob.oetker.in/assets/6c0ac2f3ce204d3d9bb1df9709fc06c9/636x380/shahi-paneer.jpg",
               restaurantName: "Anjana Restaurant",
               isFavorite: Random().nextBool(),
-              rating: (Random().nextInt(10).toDouble() +
-                      (Random().nextDouble() % 5)) %
-                  5,
+              rating: (Random().nextInt(10).toDouble() + (Random().nextDouble() % 5)) % 5,
               speciality: Random().nextBool() ? "Biryani" : "Indian",
               foodType: Random().nextBool() ? "North Indian" : "South Indian",
               lowestPriceOfItem: Random().nextInt(5000).toDouble(),
-              deliveryTime:
-                  Pair(Random().nextInt(50), Random().nextInt(70) + 50),
+              deliveryTime: Pair(Random().nextInt(50), Random().nextInt(70) + 50),
               distance: Random().nextInt(50000).toDouble(),
-              discount:
-                  "${Random().nextInt(60)}% OFF up to ${Random().nextInt(100)}",
-              onClick: (restaurant){
+              discount: "${Random().nextInt(60)}% OFF up to ${Random().nextInt(100)}",
+              onClick: (restaurant) {
                 Navigator.of(context, rootNavigator: true).pushNamed(RestaurantPageScreen.routeName);
               },
             );
